@@ -1,0 +1,23 @@
+{
+    "Actor": {
+        "types": ["pj", "pnj"],
+        "templates": {
+            
+        },
+        "pj": {
+            
+        },
+        "pnj": {
+            
+        }
+    },
+    "Item": {
+        "types": ["item"],
+        "templates": {
+            
+        },
+        "item": {
+        
+        }
+    }
+}
