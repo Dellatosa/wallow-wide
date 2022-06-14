@@ -1,0 +1,15 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="systems/wallow-wide/images/Wallow-Wide-Header.png" title="Titre" height="663" width="103"/>
+    </header>
+    <div class="sheet-fixed-content">
+        <div class="col-gauche">
+            <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="340" width="250"/>
+        </div>
+        <div class="col-droite">
+            {{> "systems/wallow-wide/templates/partials/actors/bloc-infos-personnage.hbs"}}
+            {{> "systems/wallow-wide/templates/partials/actors/bloc-caracteristiques-personnage.hbs"}}
+            {{> "systems/wallow-wide/templates/partials/actors/bloc-caracSecondaires-personnage.hbs"}}
+        </div>      
+    </div>
+</form>

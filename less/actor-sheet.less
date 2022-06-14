@@ -1,0 +1,121 @@
+.wallow-wide.sheet.actor form {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-size: 0.9em;
+}
+
+.wallow-wide.sheet.actor .sheet-header {
+    display: flex;
+    
+
+    img {
+        flex: 1 0 660px;
+        height: 103px;
+    }
+}
+
+.wallow-wide.sheet.actor .sheet-fixed-content {
+    display: grid;
+    padding: 3px;
+    grid-template-columns: 1fr 2fr;
+
+    img {
+        flex: 0 0 250px;
+        height: 350px;
+    }
+
+    label {
+        padding: 7px 0;
+    }
+}
+
+.temp {
+    font-style: italic;
+}
+
+.actor-infos {
+display: flex;
+flex-direction: column;
+
+    .actor-infos-grid {
+        display: grid;
+        padding: 3px;
+        grid-template-columns: 1fr 2fr;
+
+        .editor {
+            height: 100px;
+            margin-bottom: 3px;
+            background-color: rgba(82, 77, 77, 0.075);
+        }
+
+        textarea {
+            height: 80px;
+            margin: 3px;
+        }
+        input {
+            padding: 3px;
+            margin: 3px;
+        }
+    }
+}
+
+.actor-caracs {
+    display: flex;
+    flex-direction: column;
+
+    .actor-caracs-grid {
+        display: grid;
+        padding: 3px;
+        grid-template-columns: 1fr 2.5em 2fr;
+    }
+
+    .actor-caracs-line {
+        display: grid;
+        //padding: 3px;
+        grid-template-columns: 3fr 1fr;
+
+        input {
+            text-align: center;
+            padding: 3px;
+            margin: 3px;
+        }
+    }
+}    
+
+.actor-caracsSec {
+    display: flex;
+    flex-direction: column;
+
+    .actor-caracsSec-grid {
+        display: grid;
+        padding: 3px;
+        grid-template-columns: 2fr 2.5em 2fr;
+    }
+
+    .actor-caracsSec-line {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+
+        input {
+            text-align: center;
+            padding: 3px;
+            margin: 3px;
+        }
+    }
+
+    .actor-caracsSec-line-valMax {
+        display: grid;
+        grid-template-columns: 2.5fr 1fr 1em 1fr;
+
+        input {
+            text-align: center;
+            padding: 3px;
+            margin: 3px;
+        }
+        .separateur {
+            margin: 3px;
+            text-align: center;
+        }
+    }
+}

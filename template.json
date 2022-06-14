@@ -1,23 +1,94 @@
 {
     "Actor": {
-        "types": ["pj", "pnj"],
+        "types": ["pj", "pnj", "figurant"],
         "templates": {
-            
+            "information": {
+                "prenom": "",
+                "age": 0,
+                "sexe": "",
+                "taille": 0,
+                "description": "",
+                "couleurCheveux": "",
+                "couleurYeux": ""
+            },
+            "caracteritiques": {
+                "physique": {
+                    "valeur": 0,
+                    "label": "PHY",
+                    "max": 6
+                },
+                "mental": {
+                    "valeur": 0,
+                    "label": "MEN",
+                    "max": 6
+                },
+                "social": {
+                    "valeur": 0,
+                    "label": "SOC",
+                    "max": 6
+                }
+            },
+            "secondaires": {
+                "stressMental": {
+                    "value": 0,
+                    "max": 0
+                  },
+                "sante": {
+                    "value": 0,
+                    "max": 0
+                  },
+                "defense": 0,
+                "bonusInitiative": 0
+            }
         },
         "pj": {
-            
+            "templates": [ "information", "caracteritiques", "secondaires" ],
+            "inspiration": "",
+            "drame": 5
         },
         "pnj": {
-            
+            "templates": [ "information", "caracteritiques", "secondaires" ]
+        },
+        "figurant": {
+            "adversite": 0
         }
     },
     "Item": {
-        "types": ["item"],
+        "types": ["Item", "trait", "metier", "specialisation", "hobby", "tare", "faitMarquant", "arme"],
         "templates": {
-            
+            "base": {
+                "description": ""
+            }
         },
-        "item": {
-        
+        "Item": {
+            "templates": [ "base" ]
+        },
+        "trait": {
+            "templates": [ "base" ],
+            "caracteristique": ""
+        },
+        "metier": {
+            "templates": [ "base" ],
+            "niveau": ""
+        },
+        "specialisation": {
+            "templates": [ "base" ]
+        },
+        "hobby": {
+            "templates": [ "base" ],
+            "niveau": ""
+        },
+        "tare": {
+            "templates": [ "base" ]
+        },
+        "faitMarquant": {
+            "templates": [ "base" ]
+        },
+        "arme": {
+            "type": "",
+            "typeDegats": "",
+            "valeurDegats": "",
+            "bonus": ""
         }
     }
 }
