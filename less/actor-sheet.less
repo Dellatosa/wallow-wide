@@ -1,3 +1,13 @@
+.window-app .window-content {
+    background: url(../images/Feuille-Wallow-Wide-Back.png);
+    background-size: cover;
+}
+
+
+.window-app .window-resizable-handle {
+    visibility: hidden;
+}
+
 .wallow-wide.sheet.actor form {
     display: flex;
     flex-direction: column;
@@ -8,7 +18,6 @@
 .wallow-wide.sheet.actor .sheet-header {
     display: flex;
     
-
     img {
         flex: 1 0 660px;
         height: 103px;
@@ -18,11 +27,30 @@
 .wallow-wide.sheet.actor .sheet-fixed-content {
     display: grid;
     padding: 3px;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.7fr 17.6fr 0.7fr;
+   
+
+    .col-centrale {
+        display: grid;
+        padding: 3px;
+        grid-template-columns: 7fr 10fr;
+    }
+
+    .col-gauche {
+        display: grid;
+        grid-template-columns: 0.8fr 1.4fr 11fr 1fr;
+        grid-template-rows: 2fr 3fr 1.9fr 2fr 0.9fr;
+    }
+
+    .col-droite {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 8fr;
+    }
 
     img {
-        flex: 0 0 250px;
-        height: 350px;
+        flex: 0 0 199px;
+        height: 271px;
     }
 
     label {
