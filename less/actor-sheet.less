@@ -1,4 +1,4 @@
-.window-app .window-content {
+.window-app.wallow-wide .window-content {
     background: url(../images/Feuille-Wallow-Wide-Back.png);
     background-size: cover;
 }
@@ -9,50 +9,42 @@
 }
 
 .wallow-wide.sheet.actor form {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    font-size: 0.9em;
-}
-
-.wallow-wide.sheet.actor .sheet-header {
-    display: flex;
-    
-    img {
-        flex: 1 0 660px;
-        height: 103px;
-    }
-}
-
-.wallow-wide.sheet.actor .sheet-fixed-content {
     display: grid;
     padding: 3px;
     grid-template-columns: 1.7fr 17.6fr 0.7fr;
+    font-size: 0.9em;
    
 
     .col-centrale {
         display: grid;
         padding: 3px;
-        grid-template-columns: 7fr 10fr;
+        grid-template-columns: 0.7fr 1.2fr 11.3fr 1.1fr 20fr;
+        grid-template-rows: 1fr 0.8fr 3.1fr 1.7fr 2fr 1fr;
     }
 
-    .col-gauche {
-        display: grid;
-        grid-template-columns: 0.8fr 1.4fr 11fr 1fr;
-        grid-template-rows: 2fr 3fr 1.9fr 2fr 0.9fr;
+    .entete {
+        grid-column: 1 / 6;
+        grid-row: 1;
+        margin: 5px;
     }
 
-    .col-droite {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 8fr;
+    .portrait {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
     }
 
     img {
-        flex: 0 0 199px;
-        height: 271px;
+        border: none;
+        object-fit: fill;
+        max-width: 100%;
+        max-height: 100%;
     }
 
+    .col-droite  {
+        grid-column: 5 / 6;
+        grid-row: 2 / 6;
+    }
+    
     label {
         padding: 7px 0;
     }

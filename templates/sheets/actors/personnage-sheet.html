@@ -1,33 +1,50 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <header class="sheet-header">
-        <!--<img src="systems/wallow-wide/images/Wallow-Wide-Header.png" title="Titre" height="663" width="103"/>-->
-    </header>
-    <div class="sheet-fixed-content">
         <div class="col-sante"></div>
         <div class="col-centrale">
-            <div></div>
-            <div></div>
-            <div class="col-gauche">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="340" width="250" />
-                <div></div>
+            <div class="entete">Wallow Wide le JDR</div>
+            <div class="portrait"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /></div>
+            <div class="col-droite">
+                {{> "systems/wallow-wide/templates/partials/actors/bloc-infos-personnage.hbs"}}
+                {{> "systems/wallow-wide/templates/partials/actors/bloc-caracteristiques-personnage.hbs"}}
+                {{> "systems/wallow-wide/templates/partials/actors/bloc-caracSecondaires-personnage.hbs"}}
             </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <!--<div class="col-gauche">-->
+                 <!---->
+            <!--</div>
             <div class="col-droite">
                 <div></div>
                 <div>
-                    {{> "systems/wallow-wide/templates/partials/actors/bloc-infos-personnage.hbs"}}
-                    {{> "systems/wallow-wide/templates/partials/actors/bloc-caracteristiques-personnage.hbs"}}
-                    {{> "systems/wallow-wide/templates/partials/actors/bloc-caracSecondaires-personnage.hbs"}}
-                </div>
-            </div>
+                    
+                </div>-->
+            <!--</div>
             <div></div>
-            <div></div>
+            <div></div>-->
         </div>
         <div class="col-stress"></div>
-    </div>
 </form>
