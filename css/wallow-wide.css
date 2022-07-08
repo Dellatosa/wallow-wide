@@ -11,6 +11,14 @@
   grid-template-columns: 1.7fr 17.6fr 0.7fr;
   font-size: 0.9em;
 }
+.wallow-wide.sheet.actor form .col-sante {
+  display: grid;
+  grid-template-rows: 10fr repeat(3, 1fr) repeat(2, 0.9fr) 1fr 0.9fr repeat(13, 0.95fr) 1fr 8.95fr;
+}
+.wallow-wide.sheet.actor form .col-stress {
+  display: grid;
+  grid-template-rows: 10.1fr repeat(2, 0.85fr) 0.9fr 0.9fr repeat(2, 0.85fr) 0.9fr repeat(2, 0.85fr) 0.9fr repeat(4, 0.85fr) 0.9fr repeat(6, 0.85fr) 10.8fr;
+}
 .wallow-wide.sheet.actor form .col-centrale {
   display: grid;
   padding: 3px;
