@@ -41,5 +41,7 @@ export default class WallowWideActorSheet extends ActorSheet {
 
         const StressClass = ".stress-" + actorData.data.stressMental.value;
         html.find(StressClass).addClass("stress-cur");
+
+        //<i class="fa-solid fa-thumbtack"></i>
     }
 }
