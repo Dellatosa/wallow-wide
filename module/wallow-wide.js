@@ -20,6 +20,8 @@ Hooks.once("init", function(){
         //WallowWideItem
     };
 
+    //CONFIG.debug.hooks = true;
+
     CONFIG.WallowWide = WallowWide;
     CONFIG.Actor.documentClass = WallowWideActor;
 

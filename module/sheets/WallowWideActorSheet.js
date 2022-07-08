@@ -29,4 +29,17 @@ export default class WallowWideActorSheet extends ActorSheet {
 
         return data;
     }
+
+    activateListeners(html) {
+        super.activateListeners(html);
+
+        //console.log("----- Passage dans ActivateListeners -----");
+        const actorData = this.object.data;
+
+        const SanteClass = ".sante-" + actorData.data.sante.value;
+        html.find(SanteClass).addClass("sante-cur");
+
+        const StressClass = ".stress-" + actorData.data.stressMental.value;
+        html.find(StressClass).addClass("stress-cur");
+    }
 }
