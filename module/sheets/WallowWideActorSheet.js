@@ -18,7 +18,7 @@ export default class WallowWideActorSheet extends ActorSheet {
         } 
         else {
             console.log(`Wallow Wide | chargement du template systems/wallow-wide/templates/sheets/actors/${this.actor.data.type}-sheet.html`);
-            return `systems/agone/templates/sheets/actors/${this.actor.data.type}-sheet.html`
+            return `systems/wallow-wide/templates/sheets/actors/${this.actor.data.type}-sheet.html`
         }
     }
 
