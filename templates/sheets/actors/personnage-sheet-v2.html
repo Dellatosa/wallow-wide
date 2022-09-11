@@ -15,19 +15,58 @@
         <div class="identite-grid">
             <div class="carte-id-grid">
                 <div class="entete titre1">BUREAU DU SHERIF</div>
-                <div class="photo"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /></div>
-                <div>Cette carte d'identifictaion certifie que</div>
+                <div class="portrait"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /></div>
+                <div class="normal">Cette carte d'identification certifie que</div>
                 <div><input name="name" type="text" value="{{actor.name}}" placeholder="Nom"/></div>
-                <div>est mandaté par le Comté de</div>
-                <div>FAIRMONT</div>
-                <div>avec fonction de</div>
-                <div> <input name="system.prenom" type="text" value="{{data.system.fonction}}" placeholder="Fonction"/></div>
-                <div>Pour l'état du</div>
-                <div>Wyoming</div>
-            </div> 
+                <div class="normal">est mandaté par le Comté de</div>
+                <div class="normal">FAIRMONT</div>
+                <div class="normal">avec fonction de</div>
+                <div> <input name="system.fonction" type="text" value="{{data.system.fonction}}" placeholder="Fonction"/></div>
+                <div class="normal">Pour l'état du</div>
+                <div class="normal">Wyoming</div>
+            </div>
+            <div class="points-drame-grid">
+                <div> </div>
+                <div class="age"><label>Age</label><input name="system.age" type="number" value="{{data.system.age}}" placeholder="Age"/></div>
+                <div class="point-drame"></div>
+                <div class="point-drame"></div>
+            </div>
         </div>
     </div>
-    <!-- <section class="sheet-body">
-
-    </section> -->
+    <section class="sheet-body">
+        <div class="caracs-traits-grid">
+            <div class="entete-car titre2">CARACTERISTIQUES</div>
+            <div class="entete-trait titre2">TRAITS</div>
+            <div class="carac">PHYSIQUE</div>
+            <div class="carac-val"><input name="system.physique.valeur" type="number" value="{{data.system.physique.valeur}}" placeholder="0"/></div>
+            <div class="dice"><a class="roll-carac" title="Jet en 'Physique'" data-carac="physique"><i class="fas fa-dice"></i></a></div>
+            <div class="traits">
+                {{#each traits as |trait id|}}
+                    {{#if (eq trait.system.caracteristique "physique")}}
+                        <div class="trait-item trait-options item-box" data-item-id="{{trait._id}}">{{trait.name}}</div>
+                    {{/if}}
+                {{/each}}
+            </div>
+            <div class="carac">MENTAL</div>
+            <div class="carac-val"><input name="system.mental.valeur" type="number" value="{{data.system.mental.valeur}}" placeholder="0"/></div>
+            <div class="dice"><a class="roll-carac" title="Jet de 'Mental'" data-carac="mental"><i class="fas fa-dice"></i></a></div>
+            <div class="traits">
+                {{#each traits as |trait id|}}
+                    {{#if (eq trait.system.caracteristique "mental")}}
+                        <div class="trait-item trait-options item-box" data-item-id="{{trait._id}}">{{trait.name}}</div>
+                    {{/if}}
+                {{/each}}
+            </div>
+            <div class="carac">CONSCIENCE</div>
+            <div class="carac-val"><input name="system.conscience.valeur" type="number" value="{{data.system.conscience.valeur}}" placeholder="0"/></div>
+            <div class="dice"><a class="roll-carac" title="Jet de 'Conscience'" data-carac="conscience"><i class="fas fa-dice"></i></a></div>
+            <div class="traits">
+                {{#each traits as |trait id|}}
+                    {{#if (eq trait.system.caracteristique "conscience")}}
+                        <div class="trait-item trait-options item-box" data-item-id="{{trait._id}}">{{trait.name}}</div>
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </section>
 </form>

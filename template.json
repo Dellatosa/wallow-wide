@@ -14,17 +14,17 @@
             "caracteritiques": {
                 "physique": {
                     "valeur": 0,
-                    "label": "PHY",
+                    "label": "Physique",
                     "max": 6
                 },
                 "mental": {
                     "valeur": 0,
-                    "label": "MEN",
+                    "label": "Mental",
                     "max": 6
                 },
                 "conscience": {
                     "valeur": 0,
-                    "label": "CO",
+                    "label": "Conscience",
                     "max": 6
                 }
             },
