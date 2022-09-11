@@ -1,135 +1,215 @@
+/* CSS feuille V1
+
 .window-app.wallow-wide .window-content {
-  background: url(../images/Feuille-Wallow-Wide-Back.png);
+    background: url(../images/Feuille-Wallow-Wide-Back.png);
+    background-size: cover;
+}
+
+
+.window-app .window-resizable-handle {
+    visibility: hidden;
+}
+
+.wallow-wide.sheet.actor form { 
+    display: grid;
+    padding: 3px;
+    grid-template-columns: 1.7fr 17.6fr 0.7fr;
+    font-size: 0.9em;
+   
+    .col-sante {
+        display: grid;
+        grid-template-rows: 10fr repeat(3, 1fr) repeat(2, 0.9fr) 1fr 0.9fr repeat(13, 0.95fr) 1fr 8.95fr;
+
+        .sante-cur {
+            border-style: solid;
+            border-width: 2px;
+            border-color: red;
+            background-color: #dd10109f;
+        }
+    }
+
+    .col-stress {
+        display: grid;
+        grid-template-rows: 10.1fr repeat(2, 0.85fr) 0.9fr 0.9fr repeat(2, 0.85fr) 0.9fr repeat(2, 0.85fr) 0.9fr repeat(4, 0.85fr) 0.9fr repeat(6, 0.85fr) 10.8fr;
+
+        .stress-cur {
+            border-style: solid;
+            border-width: 2px;
+            border-color: red;
+            background-color: #dd10109f;
+        }
+    }
+
+    .col-centrale {
+        display: grid;
+        padding: 3px;
+        grid-template-columns: 0.7fr 1.2fr 11.3fr 1.1fr 20fr;
+        grid-template-rows: 1fr 0.8fr 3.1fr 1.7fr 2fr 1fr;
+    }
+
+    .entete {
+        grid-column: 1 / 6;
+        grid-row: 1;
+        margin: 5px;
+    }
+
+    .portrait {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+    }
+
+    img {
+        border: none;
+        object-fit: fill;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .col-droite  {
+        grid-column: 5 / 6;
+        grid-row: 2 / 6;
+    }
+    
+    label {
+        padding: 7px 0;
+    }
+}
+
+.temp {
+    font-style: italic;
+}
+
+.actor-infos {
+display: flex;
+flex-direction: column;
+
+    .actor-infos-grid {
+        display: grid;
+        padding: 3px;
+        grid-template-columns: 1fr 2fr;
+
+        .editor {
+            height: 100px;
+            margin-bottom: 3px;
+            background-color: rgba(82, 77, 77, 0.075);
+        }
+
+        textarea {
+            height: 80px;
+            margin: 3px;
+        }
+        input {
+            padding: 3px;
+            margin: 3px;
+        }
+    }
+}
+
+.actor-caracs {
+    display: flex;
+    flex-direction: column;
+
+    .actor-caracs-grid {
+        display: grid;
+        padding: 3px;
+        grid-template-columns: 1fr 2.5em 2fr;
+    }
+
+    .actor-caracs-line {
+        display: grid;
+        //padding: 3px;
+        grid-template-columns: 3fr 1fr;
+
+        input {
+            text-align: center;
+            padding: 3px;
+            margin: 3px;
+        }
+    }
+}    
+
+.actor-caracsSec {
+    display: flex;
+    flex-direction: column;
+
+    .actor-caracsSec-grid {
+        display: grid;
+        padding: 3px;
+        grid-template-columns: 2fr 2.5em 2fr;
+    }
+
+    .actor-caracsSec-line {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+
+        input {
+            text-align: center;
+            padding: 3px;
+            margin: 3px;
+        }
+    }
+
+    .actor-caracsSec-line-valMax {
+        display: grid;
+        grid-template-columns: 2.5fr 1fr 1em 1fr;
+
+        input {
+            text-align: center;
+            padding: 3px;
+            margin: 3px;
+        }
+        .separateur {
+            margin: 3px;
+            text-align: center;
+        }
+    }
+}
+*/
+.window-app .window-content {
+  background: url("../images/indieground-vintagepaper-textures-01.jpg");
   background-size: cover;
 }
-.window-app .window-resizable-handle {
-  visibility: hidden;
-}
-.wallow-wide.sheet.actor form {
-  display: grid;
+.titre1 {
   padding: 3px;
-  grid-template-columns: 1.7fr 17.6fr 0.7fr;
-  font-size: 0.9em;
+  font-size: 2em;
 }
-.wallow-wide.sheet.actor form .col-sante {
-  display: grid;
-  grid-template-rows: 10fr repeat(3, 1fr) repeat(2, 0.9fr) 1fr 0.9fr repeat(13, 0.95fr) 1fr 8.95fr;
-}
-.wallow-wide.sheet.actor form .col-sante .sante-cur {
-  border-style: solid;
-  border-width: 2px;
-  border-color: red;
-  background-color: #dd10109f;
-}
-.wallow-wide.sheet.actor form .col-stress {
-  display: grid;
-  grid-template-rows: 10.1fr repeat(2, 0.85fr) 0.9fr 0.9fr repeat(2, 0.85fr) 0.9fr repeat(2, 0.85fr) 0.9fr repeat(4, 0.85fr) 0.9fr repeat(6, 0.85fr) 10.8fr;
-}
-.wallow-wide.sheet.actor form .col-stress .stress-cur {
-  border-style: solid;
-  border-width: 2px;
-  border-color: red;
-  background-color: #dd10109f;
-}
-.wallow-wide.sheet.actor form .col-centrale {
-  display: grid;
+.titre2 {
   padding: 3px;
-  grid-template-columns: 0.7fr 1.2fr 11.3fr 1.1fr 20fr;
-  grid-template-rows: 1fr 0.8fr 3.1fr 1.7fr 2fr 1fr;
+  font-size: 1.5em;
 }
-.wallow-wide.sheet.actor form .entete {
-  grid-column: 1 / 6;
-  grid-row: 1;
-  margin: 5px;
-}
-.wallow-wide.sheet.actor form .portrait {
-  grid-column: 3 / 4;
-  grid-row: 3 / 4;
-}
-.wallow-wide.sheet.actor form img {
-  border: none;
-  object-fit: fill;
-  max-width: 100%;
-  max-height: 100%;
-}
-.wallow-wide.sheet.actor form .col-droite {
-  grid-column: 5 / 6;
-  grid-row: 2 / 6;
-}
-.wallow-wide.sheet.actor form label {
-  padding: 7px 0;
-}
-.temp {
-  font-style: italic;
-}
-.actor-infos {
-  display: flex;
-  flex-direction: column;
-}
-.actor-infos .actor-infos-grid {
-  display: grid;
-  padding: 3px;
-  grid-template-columns: 1fr 2fr;
-}
-.actor-infos .actor-infos-grid .editor {
-  height: 100px;
-  margin-bottom: 3px;
-  background-color: rgba(82, 77, 77, 0.075);
-}
-.actor-infos .actor-infos-grid textarea {
-  height: 80px;
-  margin: 3px;
-}
-.actor-infos .actor-infos-grid input {
-  padding: 3px;
-  margin: 3px;
-}
-.actor-caracs {
-  display: flex;
-  flex-direction: column;
-}
-.actor-caracs .actor-caracs-grid {
-  display: grid;
-  padding: 3px;
-  grid-template-columns: 1fr 2.5em 2fr;
-}
-.actor-caracs .actor-caracs-line {
+.entete-grid {
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
-.actor-caracs .actor-caracs-line input {
+.entete-grid .titre {
   text-align: center;
+  border: solid 2px;
+  margin: 2px 0 2px 2px;
+}
+.entete-grid .titre .titre2 {
+  border-bottom: solid 2px;
+}
+.entete-grid .titre .normal {
   padding: 3px;
-  margin: 3px;
 }
-.actor-caracsSec {
-  display: flex;
-  flex-direction: column;
+.entete-grid .logo {
+  margin: 2px 2px 2px 0;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  border-right: solid 2px;
 }
-.actor-caracsSec .actor-caracsSec-grid {
-  display: grid;
-  padding: 3px;
-  grid-template-columns: 2fr 2.5em 2fr;
-}
-.actor-caracsSec .actor-caracsSec-line {
+.identite-grid {
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
-.actor-caracsSec .actor-caracsSec-line input {
-  text-align: center;
-  padding: 3px;
-  margin: 3px;
-}
-.actor-caracsSec .actor-caracsSec-line-valMax {
+.identite-grid .carte-id-grid {
   display: grid;
-  grid-template-columns: 2.5fr 1fr 1em 1fr;
+  grid-template-columns: 3fr 1fr;
 }
-.actor-caracsSec .actor-caracsSec-line-valMax input {
-  text-align: center;
-  padding: 3px;
-  margin: 3px;
+.identite-grid .carte-id-grid .entete {
+  grid-column: 1 / 3;
 }
-.actor-caracsSec .actor-caracsSec-line-valMax .separateur {
-  margin: 3px;
-  text-align: center;
+.identite-grid .carte-id-grid .photo {
+  grid-column: 2 / 3;
+  grid-row: 2 / 10;
 }

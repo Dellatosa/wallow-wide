@@ -12,20 +12,20 @@ export default class WallowWideActorSheet extends ActorSheet {
     }
 
     get template() {
-        if(this.actor.data.type == "pj" || this.actor.data.type == "pnj") {
-            console.log(`Wallow Wide | type : ${this.actor.data.type} | chargement du template systems/wallow-wide/templates/sheets/actors/personnage-sheet.html`);
-            return `systems/wallow-wide/templates/sheets/actors/personnage-sheet.html`
+        if(this.actor.type == "pj" || this.actor.type == "pnj") {
+            console.log(`Wallow Wide | type : ${this.actor.type} | chargement du template systems/wallow-wide/templates/sheets/actors/personnage-sheet-v2.html`);
+            return `systems/wallow-wide/templates/sheets/actors/personnage-sheet-v2.html`
         } 
         else {
-            console.log(`Wallow Wide | chargement du template systems/wallow-wide/templates/sheets/actors/${this.actor.data.type}-sheet.html`);
-            return `systems/wallow-wide/templates/sheets/actors/${this.actor.data.type}-sheet.html`
+            console.log(`Wallow Wide | chargement du template systems/wallow-wide/templates/sheets/actors/${this.actor.type}-sheet.html`);
+            return `systems/wallow-wide/templates/sheets/actors/${this.actor.type}-sheet.html`
         }
     }
 
     getData() {
         const data = super.getData();
         data.config = CONFIG.WallowWide;
-        const actorData = data.data.data;
+        const actorData = data.system;
 
         return data;
     }

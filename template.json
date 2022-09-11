@@ -22,14 +22,14 @@
                     "label": "MEN",
                     "max": 6
                 },
-                "social": {
+                "conscience": {
                     "valeur": 0,
-                    "label": "SOC",
+                    "label": "CO",
                     "max": 6
                 }
             },
             "secondaires": {
-                "stressMental": {
+                "stress": {
                     "value": 0,
                     "max": 0
                   },
@@ -44,7 +44,9 @@
         "pj": {
             "templates": [ "information", "caracteritiques", "secondaires" ],
             "inspiration": "",
-            "drame": 5
+            "focntion": "",
+            "pointsPerso": 0,
+            "drame": 0
         },
         "pnj": {
             "templates": [ "information", "caracteritiques", "secondaires" ]
@@ -54,13 +56,13 @@
         }
     },
     "Item": {
-        "types": ["Item", "trait", "metier", "specialisation", "hobby", "tare", "faitMarquant", "arme"],
+        "types": ["equipement", "trait", "metier", "specialisation", "hobby", "tare", "faitMarquant", "arme"],
         "templates": {
             "base": {
                 "description": ""
             }
         },
-        "Item": {
+        "equipement": {
             "templates": [ "base" ]
         },
         "trait": {

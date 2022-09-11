@@ -1,0 +1,33 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <div class="entete-grid">
+            <div class="titre">
+                <div class="titre1">Comté de Fairmont</div>
+                <div class="titre2">Bureau du sherif de Wallow Wide</div>
+                <div class="normal">Fiche de renseignement</div>
+            </div>
+            <div class="logo">
+
+            </div>
+        </div>
+    </header>
+    <div class="sheet-fixed-content">
+        <div class="identite-grid">
+            <div class="carte-id-grid">
+                <div class="entete titre1">BUREAU DU SHERIF</div>
+                <div class="photo"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /></div>
+                <div>Cette carte d'identifictaion certifie que</div>
+                <div><input name="name" type="text" value="{{actor.name}}" placeholder="Nom"/></div>
+                <div>est mandaté par le Comté de</div>
+                <div>FAIRMONT</div>
+                <div>avec fonction de</div>
+                <div> <input name="system.prenom" type="text" value="{{data.system.fonction}}" placeholder="Fonction"/></div>
+                <div>Pour l'état du</div>
+                <div>Wyoming</div>
+            </div> 
+        </div>
+    </div>
+    <!-- <section class="sheet-body">
+
+    </section> -->
+</form>
