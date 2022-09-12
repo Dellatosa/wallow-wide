@@ -5,3 +5,9 @@ WallowWide.caracteristiques = {
     mental: "Mental",
     conscience: "Conscience"
 }
+
+WallowWide.niveaux = {
+    maitre: "Maître",
+    expert: "Expert",
+    averti: "Averti"
+}
