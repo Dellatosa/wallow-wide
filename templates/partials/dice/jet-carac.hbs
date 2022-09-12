@@ -1,0 +1,40 @@
+<div class="jet-carac">
+    <div class="titre-jet-carac">
+        <div>{{stats.caracteristique}} [{{stats.valeur}}]</div>
+    </div>
+    <div class="grid-jet-carac">
+        <div class="dice-back">
+            {{#if (eq stats.dices.dice0.faces 8)}}
+                <div class="roll die d8">{{stats.dices.dice0.total}}</div>
+            {{/if}}
+            {{#if (eq stats.dices.dice0.faces 10)}}
+                <div class="roll die d10">{{stats.dices.dice0.total}}</div>
+            {{/if}}
+            {{#if (eq stats.dices.dice0.faces 12)}}
+                <div class="roll die d12">{{stats.dices.dice0.total}}</div>
+            {{/if}}            
+        </div>
+        <div class="dice-back">
+            {{#if (eq stats.dices.dice1.faces 8)}}
+                <div class="roll die d8">{{stats.dices.dice1.total}}</div>
+            {{/if}}
+            {{#if (eq stats.dices.dice1.faces 10)}}
+                <div class="roll die d10">{{stats.dices.dice1.total}}</div>
+            {{/if}}
+            {{#if (eq stats.dices.dice1.faces 12)}}
+                <div class="roll die d12">{{stats.dices.dice1.total}}</div>
+            {{/if}}
+        </div>
+        <div class="dice-back">
+            {{#if (eq stats.dices.dice2.faces 8)}}
+                <div class="roll die d8">{{stats.dices.dice2.total}}</div>
+            {{/if}}
+            {{#if (eq stats.dices.dice2.faces 10)}}
+                <div class="roll die d10">{{stats.dices.dice2.total}}</div>
+            {{/if}}
+            {{#if (eq stats.dices.dice2.faces 12)}}
+                <div class="roll die d12">{{stats.dices.dice2.total}}</div>
+            {{/if}}
+        </div> 
+    </div>
+</div>

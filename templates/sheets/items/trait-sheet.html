@@ -1,0 +1,23 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Nom du trait"/></h1>
+    </header>
+    <div class="sheet-content trait" data-item-id="{{item.id}}">
+        <div class="grid-item-trait">
+            <label>Niveau</label>
+            <select name="system.caracteristique">
+                {{#select data.system.caracteristique}}
+                {{#each config.caracteristiques as |caracteristique keyCarac|}}
+                    <option value="{{keyCarac}}">{{caracteristique}}</option>
+                {{/each}}
+                {{/select}} 
+            </select>
+        </div>
+        <div class="titre-desc">Description du trait</div> 
+        {{editor data.system.description target="system.description" button=true owner=true editable=true}}
+    </div>
+    <footer class="sheet-footer">
+        <div>Trait</div>
+    </footer>
+</form>

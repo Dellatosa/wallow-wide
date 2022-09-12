@@ -166,7 +166,7 @@ flex-direction: column;
 }
 */
 .window-app .window-content {
-  background: url("../images/old-document-size-paper1.jpg");
+  background: url("../images/old-document-size-paper2.jpg");
   background-size: cover;
 }
 .titre1 {
@@ -263,4 +263,49 @@ flex-direction: column;
 }
 .caracs-traits-grid .normal {
   padding: 3px;
+}
+.editor {
+  height: 150px;
+}
+.sheet-footer {
+  border-top: solid thin #8d762b;
+  padding: 3px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.grid-item-trait {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.roll {
+  width: 30px;
+  line-height: 30px;
+  font-size: var(--font-size-16);
+  font-weight: bold;
+  text-align: center;
+  margin: 3px;
+}
+.dice-back {
+  display: flex;
+  justify-content: center;
+  margin: 3px;
+}
+.d8 {
+  background: url("../images/dices/d8-grey.svg") no-repeat;
+  color: black;
+  background-size: 30px 30px;
+}
+.d10 {
+  background: url("../images/dices/d10-grey.svg") no-repeat;
+  color: black;
+  background-size: 30px 30px;
+}
+.d12 {
+  background: url("../images/dices/d12-grey.svg") no-repeat;
+  color: black;
+  background-size: 30px 30px;
+}
+.grid-jet-carac {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
