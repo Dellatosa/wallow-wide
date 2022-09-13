@@ -1,11 +1,32 @@
 export async function jetCaracteristique ({actor = null,
     caracteristique = null,
+    trait = null,
+    metier = null,
     difficulte = null,
     afficherDialog = true,
     envoiMessage = true} = {}) {
 
     // Récupération des données de l'acteur
     let actorData = actor.system;
+
+    let speUtilisee = null;
+    if(afficherDialog && metier) {
+        let dialogOptions = await getJetMetierOptions({cfgData: CONFIG.WallowWide, metier: metier});
+        
+        // On annule le jet sur les boutons 'Annuler' ou 'Fermeture'    
+        if(dialogOptions.annule) {
+            return null;
+        }
+
+        // Récupération des données de la fenêtre de dialogue pour ce jet 
+        caracteristique = dialogOptions.caracteristique;
+        speUtilisee = dialogOptions.speUtilisee;
+    }
+
+    if(!caracteristique) {
+        ui.notifications.warn(`Veuillez sélectionner une caractéristique pour effectuer ce jet.`);
+        return null;
+    }
 
     let valeur = actorData[caracteristique].valeur;
     let nomCarac = actorData[caracteristique].label;
@@ -29,7 +50,7 @@ export async function jetCaracteristique ({actor = null,
             rollFormula = "{1d12,1d10,1d10}"
             break;
         case 2:
-            baseForollFormularmula = "{1d12,1d12,1d10}"
+            rollFormula = "{1d12,1d12,1d10}"
             break;
         case 3:
             rollFormula = "{1d12,1d12,1d12}"
@@ -42,6 +63,17 @@ export async function jetCaracteristique ({actor = null,
         valeur: valeur
     }
         
+    if(trait) {
+        rollData.trait = trait.name;
+    }
+
+    if(metier) {
+        rollData.metier = metier.name;
+        if(speUtilisee) {
+            rollData.specialisation = metier.system.specialisation
+        }
+    }
+
     let rollResult = await new Roll(rollFormula, rollData).roll({async: true});
         
     const sortDesc = (a, b) => a[1] - b[1];
@@ -75,6 +107,13 @@ export async function jetCaracteristique ({actor = null,
 
     rollData.dices = dices;
 
+    if(trait || metier) {
+        rollData.resultat = dices.dice2.total;
+    }
+    else {
+        rollData.resultat = dices.dice1.total;
+    }
+
     if(envoiMessage) {
         let messageTemplate;
         // Recupération du template
@@ -89,8 +128,6 @@ export async function jetCaracteristique ({actor = null,
             roll: renderedRoll
         }
 
-        console.log(templateContext);
-
         // Construction du message
         let chatData = {
             user: game.user.id,
@@ -104,4 +141,91 @@ export async function jetCaracteristique ({actor = null,
         // Affichage du message
         await ChatMessage.create(chatData);
     }
+}
+
+// Fonction de construction de la boite de dialogue de jet de caracteristique Métier
+async function getJetMetierOptions({cfgData = null, metier = null}) {
+    // Recupération du template
+    const template = "systems/wallow-wide/templates/partials/dice/dialog-jet-metier.hbs";
+    const html = await renderTemplate(template, {cfgData: cfgData, metier: metier});
+
+    return new Promise( resolve => {
+        const data = {
+            title: "Jet de caractéristique avec bonus Métier",
+            content: html,
+            buttons: {
+                jet: { // Bouton qui lance le jet de dé
+                    icon: '<i class="fas fa-dice"></i>',
+                    label: "Jeter les dés",
+                    callback: html => resolve(_processJetMetierOptions(html[0].querySelector("form")))
+                },
+                annuler: { // Bouton d'annulation
+                    label: "Annuler",
+                    callback: html => resolve({annule: true})
+                }
+            },
+            default: "jet",
+            close: () => resolve({annule: true}) // Annulation sur fermeture de la boite de dialogue
+        }
+
+        // Affichage de la boite de dialogue
+        new Dialog(data, null).render(true);
+    });        
+}
+
+// Gestion des données renseignées dans la boite de dialogue de jet de caracteristique Métier
+function _processJetMetierOptions(form) {
+    let speUtilisee = false;
+        if(form.speUtilisee) {
+            speUtilisee = form.speUtilisee.checked;
+        }
+
+    return {
+        caracteristique: form.carac.value != "aucun" ? form.carac.value : null,
+        speUtilisee: speUtilisee
+    }
+}
+
+
+export async function jetRelanceSpecialisation ({actor = null,
+    specialisation = null,
+    rollFormula = null,
+    resultat = null} = {}) {
+
+    let rollData = {
+        nomPersonnage : actor.name,
+        specialisation : specialisation
+    }
+
+    let rollResult = await new Roll(rollFormula, rollData).roll({async: true});
+
+    rollData.faces = rollResult.dice[0].faces;
+    rollData.total = rollResult.dice[0].total;
+    rollData.resultat = Math.max(resultat, rollResult.dice[0].total);
+
+    let messageTemplate;
+    // Recupération du template
+    messageTemplate = "systems/wallow-wide/templates/partials/dice/jet-reroll-spec.hbs"; 
+        
+    let renderedRoll = await rollResult.render();
+
+    // Assignation des données au template
+    let templateContext = {
+        actorId : actor.id,
+        stats : rollData,
+        roll: renderedRoll
+    }
+
+    // Construction du message
+    let chatData = {
+        user: game.user.id,
+        speaker: ChatMessage.getSpeaker({ actor: actor }),
+        roll: rollResult,
+        content: await renderTemplate(messageTemplate, templateContext),
+        sound: CONFIG.sounds.dice,
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL
+    }
+
+    // Affichage du message
+    await ChatMessage.create(chatData);
 }

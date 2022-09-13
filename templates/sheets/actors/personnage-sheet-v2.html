@@ -2,12 +2,12 @@
     <header class="sheet-header">
         <div class="entete-grid">
             <div class="titre">
-                <div class="titre1">Comté de Fairmont</div>
-                <div class="titre2">Bureau du sherif de Wallow Wide</div>
-                <div class="normal">Fiche de renseignement</div>
+                <div class="titre1"><label>COMTE de FAIRMONT</label></div>
+                <div class="titre2"><label>BUREAU DU SHERIF de Wallow Wide</label></div>
+                <div class="titre3"><label>Fiche de renseignements</label></div>
             </div>
             <div class="logo">
-
+                <img src="systems/wallow-wide/images/Flag_of_Wyoming.png">
             </div>
         </div>
     </header>
@@ -37,55 +37,60 @@
         <div class="caracs-traits-grid">
             <div class="entete-car titre2">CARACTERISTIQUES</div>
             <div class="entete-trait titre2">TRAITS</div>
-            <div class="carac">PHYSIQUE</div>
+            <div class="carac titre3">PHYSIQUE</div>
             <div class="carac-val"><input name="system.physique.valeur" type="number" value="{{data.system.physique.valeur}}" placeholder="0"/></div>
             <div class="dice"><a class="roll-carac" title="Jet en 'Physique'" data-carac="physique"><i class="fas fa-dice"></i></a></div>
             <div class="traits">
                 {{#each traits as |trait id|}}
                     {{#if (eq trait.system.caracteristique "physique")}}
-                        <div class="trait-item trait-options item-box" data-item-id="{{trait._id}}">{{trait.name}}</div>
+                        <div class="trait-item item-options item-box" data-item-id="{{trait._id}}" data-carac="physique">
+                            <a class="roll-trait" title="Jet en 'Physique' avec '{{trait.name}}'">{{trait.name}}</a>
+                        </div>
                     {{/if}}
                 {{/each}}
             </div>
-            <div class="carac">MENTAL</div>
+            <div class="carac titre3">MENTAL</div>
             <div class="carac-val"><input name="system.mental.valeur" type="number" value="{{data.system.mental.valeur}}" placeholder="0"/></div>
             <div class="dice"><a class="roll-carac" title="Jet de 'Mental'" data-carac="mental"><i class="fas fa-dice"></i></a></div>
             <div class="traits">
                 {{#each traits as |trait id|}}
                     {{#if (eq trait.system.caracteristique "mental")}}
-                        <div class="trait-item trait-options item-box" data-item-id="{{trait._id}}">{{trait.name}}</div>
+                        <div class="trait-item item-options item-box" data-item-id="{{trait._id}}" data-carac="mental">
+                            <a class="roll-trait" title="Jet en 'Mental' avec '{{trait.name}}'">{{trait.name}}</a>
+                        </div>
                     {{/if}}
                 {{/each}}
             </div>
-            <div class="carac bottom">CONSCIENCE</div>
+            <div class="carac titre3 bottom">CONSCIENCE</div>
             <div class="carac-val bottom"><input name="system.conscience.valeur" type="number" value="{{data.system.conscience.valeur}}" placeholder="0"/></div>
             <div class="dice bottom"><a class="roll-carac" title="Jet de 'Conscience'" data-carac="conscience"><i class="fas fa-dice"></i></a></div>
             <div class="traits bottom">
                 {{#each traits as |trait id|}}
                     {{#if (eq trait.system.caracteristique "conscience")}}
-                        <div class="trait-item trait-options item-box" data-item-id="{{trait._id}}">{{trait.name}}</div>
+                        <div class="trait-item item-options item-box" data-item-id="{{trait._id}}" data-carac="conscience">
+                            <a class="roll-trait" title="Jet en 'Conscience' avec '{{trait.name}}'">{{trait.name}}</a>
+                        </div>
                     {{/if}}
                 {{/each}}
             </div>
         </div>
         <div class="metiers-grid">
-            <div class="entete-metier titre2">METIERS</div>
-            <div class="box metiers">
-                {{#each metiers as |metier id|}}
-                    <div class="metier-item">{{metier.name}}</div>
-                {{/each}}
-            </div>
-            <div class="box rolls">
-                {{#each metiers as |metier id|}}
-                    <div class="dice-item"><a class="roll-metier" title="Jet avec '{{metier.name}}'" data-item-id="{{metier._id}}"><i class="fas fa-dice"></i></a></div>
-                {{/each}}
-            </div>
-            <div class="entete-niv titre2">NIVEAUX</div>
-            <div class="box niveaux">
-                {{#each metiers as |metier id|}}
-                <div class="niveau-item">{{metier.system.niveau}}</div>
-                {{/each}}
-            </div>
+            {{#each metiers as |metier id|}}
+                {{#if (eq @index 0)}}
+                    <div class="entete-metier titre3">METIERS</div>
+                    <div class="dice top"><a class="roll-metier" title="Jet avec '{{metier.name}}'" data-item-id="{{metier._id}}"><i class="fas fa-dice"></i></a></div>
+                    <div class="metier-item item-options top" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
+                    <div class="entete-niv titre3">NIVEAUX</div>
+                    <div class="niveau top">{{configVal 'niveaux' metier.system.niveau}}</div>
+                {{else}}
+                    <div> </div>
+                    <div class="dice"><a class="roll-metier" title="Jet avec '{{metier.name}}'" data-item-id="{{metier._id}}"><i class="fas fa-dice"></i></a></div>
+                    <div class="metier-item item-options" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
+                    <div> </div>
+                    <div class="niveau">{{configVal 'niveaux' metier.system.niveau}}</div>
+                {{/if}}
+            {{/each}}
+            
         </div>
     </section>
 </form>

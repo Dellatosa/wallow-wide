@@ -1,6 +1,6 @@
 <div class="jet-carac">
     <div class="titre-jet-carac">
-        <div>{{stats.caracteristique}} [{{stats.valeur}}]</div>
+        <div>{{stats.caracteristique}} [{{stats.valeur}}]{{#if stats.trait}} - {{stats.trait}}{{/if}}{{#if stats.metier}} - {{stats.metier}}{{/if}}</div>
     </div>
     <div class="grid-jet-carac">
         <div class="dice-back">
@@ -37,4 +37,8 @@
             {{/if}}
         </div> 
     </div>
+    <div class="resultat"><label>Résultat : {{stats.resultat}}</label></div>
+    {{#if stats.specialisation}}        
+        <div class="btn-spec"><button class="spec" data-actor-id="{{actorId}}" data-spec="{{stats.specialisation}}" data-resultat="{{stats.resultat}}" data-faces="{{stats.dices.dice0.faces}}">{{stats.specialisation}}</button></div>
+    {{/if}}
 </div>

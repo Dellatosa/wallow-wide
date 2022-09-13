@@ -3,6 +3,7 @@ import WallowWideActorSheet from "./sheets/WallowWideActorSheet.js";
 import WallowWideActor from "./WallowWideActor.js";
 import WallowWideItemSheet from "./sheets/WallowWideItemSheet.js";
 import WallowWideItem from "./WallowWideItem.js";
+import * as Chat from "./chat.js";
 
 async function preloadHandlebarsTemplates() {
     const templatePaths = [
@@ -35,4 +36,10 @@ Hooks.once("init", function(){
     Items.registerSheet("wallow-wide", WallowWideItemSheet, {makeDefault: true});
 
     preloadHandlebarsTemplates();
+
+    Handlebars.registerHelper("configVal", function(liste, val) {
+        return WallowWide[liste][val];
+    });
 })
+
+Hooks.on("renderChatLog", (app, html, data) => Chat.addChatListeners(html));

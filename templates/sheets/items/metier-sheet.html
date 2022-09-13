@@ -13,6 +13,8 @@
                 {{/each}}
                 {{/select}} 
             </select>
+            <label>Spécialisation</label>
+            <input name="system.specialisation" type="text" value="{{data.system.specialisation}}" placeholder="Spécialisation"/>
         </div>
         <div class="titre-desc">Description du métier</div> 
         {{editor data.system.description target="system.description" button=true owner=true editable=true}}

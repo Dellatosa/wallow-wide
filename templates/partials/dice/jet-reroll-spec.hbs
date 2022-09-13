@@ -1,0 +1,19 @@
+<div class="jet-reroll">
+    <div class="titre-jet-reroll">
+        <div>Relance '{{stats.specialisation}}'</div>
+    </div>
+    <div class="grid-jet-reroll">
+        <div class="dice-back">
+            {{#if (eq stats.faces 8)}}
+                <div class="roll die d8">{{stats.total}}</div>
+            {{/if}}
+            {{#if (eq stats.faces 10)}}
+                <div class="roll die d10">{{stats.total}}</div>
+            {{/if}}
+            {{#if (eq stats.faces 12)}}
+                <div class="roll die d12">{{stats.total}}</div>
+            {{/if}}            
+        </div>
+    </div>
+    <div class="resultat"><label>Résultat : {{stats.resultat}}</label></div>
+</div>

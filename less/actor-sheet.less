@@ -182,6 +182,11 @@ flex-direction: column;
     font-size: 1.5em;
 }
 
+.titre3 {
+    padding: 3px;
+    font-size: 1.25em;
+}
+
 .item-box {
     border: 1px solid;
     border-radius: 2px;
@@ -190,9 +195,16 @@ flex-direction: column;
     padding: 1px;
 }
 
+.sheet.wallow-wide header.sheet-header img {
+    border: none;
+    width : auto;
+    height : 110px;
+    margin: 0px;
+}
+
 .entete-grid {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 158px;
 
     .titre {
         text-align: center;
@@ -209,6 +221,9 @@ flex-direction: column;
     }
 
     .logo {
+        display: flex;
+        justify-content: center;
+
         margin: 2px 2px 2px 0;
         border-top: solid 2px;
         border-bottom: solid 2px;
@@ -218,7 +233,7 @@ flex-direction: column;
 
 .identite-grid {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 158px;
     margin: 2px;
 
     .carte-id-grid {
@@ -334,14 +349,34 @@ flex-direction: column;
 
 .metiers-grid {
     display: grid;
-    grid-template-columns: 3fr 3fr 2em 1.5fr 2.5fr;
-
-    .box {
-        margin-top: 10px;
+    grid-template-columns: 2fr 2em 5fr 1.5fr 1.5fr;
+    margin: 1px;
+    
+    .dice {
+        text-align: center;
     }
 
-    .metier-item, .dice-item, .niveau-item {
-        margin: 4px 2px;
+    .metier-item, .dice, .niveau {
+        margin-top: 5px;
         align-items: center;
     }
+
+    .metier-item.top, .dice.top, .niveau.top {
+        margin-top: 0px;
+        padding-top: 10px;
+        border-top: solid 2px;
+    }
+
+    .entete-niv {
+        border-top: solid 2px;
+    }
+
+    .entete-metier {
+        border-left: solid 2px;
+        border-top: solid 2px;
+    }
+    .niveau.top {
+        border-right: solid 2px;
+    }
+
 }

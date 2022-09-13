@@ -52,10 +52,14 @@ export default class WallowWideActorSheet extends ActorSheet {
         //<i class="fa-solid fa-thumbtack"></i>
 
         if (this.actor.isOwner) {
-            new ContextMenu(html, ".trait-options", this.traitContextMenu);
+            new ContextMenu(html, ".item-options", this.traitContextMenu);
 
              // Jet de caractéristique
             html.find('.roll-carac').click(this._onJetCaracteristique.bind(this));
+
+            html.find('.roll-trait').click(this._onJetCaracAvecTrait.bind(this));
+
+            html.find('.roll-metier').click(this._onJetCaracAvecMetier.bind(this));
         }
     }
 
@@ -93,7 +97,15 @@ export default class WallowWideActorSheet extends ActorSheet {
             callback: e => {
                 const data = e[0].dataset;
                 const item = this.actor.items.get(data.itemId);
-                item.delete();
+
+                let content = `<p>${item.type} : ${item.name}<br>Etes-vous certain de vouloir supprimer cet objet ?<p>`
+                let dlg = Dialog.confirm({
+                title: "Confirmation de suppression",
+                content: content,
+                yes: () => item.delete(),
+                //no: () =>, On ne fait rien sur le 'Non'
+                defaultYes: false
+                });
             }
         }
     ];
@@ -105,6 +117,35 @@ export default class WallowWideActorSheet extends ActorSheet {
         Dice.jetCaracteristique({
             actor: this.actor,
             caracteristique: dataset.carac
+        });
+    }
+
+    _onJetCaracAvecTrait(event) {
+        event.preventDefault();
+        const dataset = event.currentTarget.closest(".trait-item").dataset;
+
+        let traitId = dataset.itemId;
+        const trait = this.actor.items.get(traitId);
+
+        Dice.jetCaracteristique({
+            actor: this.actor,
+            caracteristique: dataset.carac,
+            trait : trait
+        });
+    }
+
+    _onJetCaracAvecMetier(event) {
+        event.preventDefault();
+        const dataset = event.currentTarget.dataset;
+
+        let metierId = dataset.itemId;
+        const metier = this.actor.items.get(metierId);
+
+        Dice.jetCaracteristique({
+            actor: this.actor,
+            caracteristique: dataset.carac,
+            metier : metier,
+            afficherDialog: true
         });
     }
 }
