@@ -60,6 +60,8 @@ export default class WallowWideActorSheet extends ActorSheet {
             html.find('.roll-trait').click(this._onJetCaracAvecTrait.bind(this));
 
             html.find('.roll-metier').click(this._onJetCaracAvecMetier.bind(this));
+
+            html.find('.roll-hobby').click(this._onJetCaracAvecHobby.bind(this));
         }
     }
 
@@ -145,6 +147,21 @@ export default class WallowWideActorSheet extends ActorSheet {
             actor: this.actor,
             caracteristique: dataset.carac,
             metier : metier,
+            afficherDialog: true
+        });
+    }
+
+    _onJetCaracAvecHobby(event) {
+        event.preventDefault();
+        const dataset = event.currentTarget.dataset;
+
+        let hobbyId = dataset.itemId;
+        const hobby = this.actor.items.get(hobbyId);
+
+        Dice.jetCaracteristique({
+            actor: this.actor,
+            caracteristique: dataset.carac,
+            hobby : hobby,
             afficherDialog: true
         });
     }

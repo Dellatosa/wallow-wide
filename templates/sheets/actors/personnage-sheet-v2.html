@@ -27,7 +27,7 @@
             </div>
             <div class="points-drame-grid">
                 <div> </div>
-                <div class="age"><label>Age</label><input name="system.age" type="number" value="{{data.system.age}}" placeholder="Age"/></div>
+                <div class="age"><label>Age</label><input name="system.age" type="text" value="{{data.system.age}}" placeholder="Age"/></div>
                 <div class="point-drame"> </div>
                 <div class="point-drame bottom"> </div>
             </div>
@@ -77,20 +77,89 @@
         <div class="metiers-grid">
             {{#each metiers as |metier id|}}
                 {{#if (eq @index 0)}}
-                    <div class="entete-metier titre3">METIERS</div>
+                    <div class="entete-metier titre3 all">METIERS</div>
                     <div class="dice top"><a class="roll-metier" title="Jet avec '{{metier.name}}'" data-item-id="{{metier._id}}"><i class="fas fa-dice"></i></a></div>
                     <div class="metier-item item-options top" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
-                    <div class="entete-niv titre3">NIVEAUX</div>
-                    <div class="niveau top">{{configVal 'niveaux' metier.system.niveau}}</div>
+                    <div class="entete-niv titre3 all">NIVEAUX</div>
+                    <div class="niveau right top">{{configVal 'niveaux' metier.system.niveau}}</div>
                 {{else}}
-                    <div> </div>
+                    <div class="metier-vide left right"> </div>
                     <div class="dice"><a class="roll-metier" title="Jet avec '{{metier.name}}'" data-item-id="{{metier._id}}"><i class="fas fa-dice"></i></a></div>
                     <div class="metier-item item-options" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
-                    <div> </div>
-                    <div class="niveau">{{configVal 'niveaux' metier.system.niveau}}</div>
+                    <div class="niveau-vide left right"> </div>
+                    <div class="niveau right">{{configVal 'niveaux' metier.system.niveau}}</div>
                 {{/if}}
             {{/each}}
-            
+            {{#if metiers}}
+                <div class="vide left right bottom"> </div>
+                <div class="vide bottom"> </div>
+                <div class="vide bottom"> </div>
+                <div class="vide bottom left right"> </div>
+                <div class="vide right bottom"> </div>
+            {{/if}}
+        </div>
+        <div class="hobbies-grid">
+            {{#each hobbies as |hobby id|}}
+                {{#if (eq @index 0)}}
+                    <div class="entete-hobby titre3 all">HOBBIES</div>
+                    <div class="dice top"><a class="roll-hobby" title="Jet avec '{{hobby.name}}'" data-item-id="{{hobby._id}}"><i class="fas fa-dice"></i></a></div>
+                    <div class="hobby-item item-options top" data-item-id="{{hobby._id}}">{{hobby.name}}</div>
+                    <div class="entete-niv titre3 all">NIVEAUX</div>
+                    <div class="niveau right top">{{configVal 'niveaux' hobby.system.niveau}}</div>
+                {{else}}
+                    <div class="hobby-vide left right"> </div>
+                    <div class="dice"><a class="roll-hobby" title="Jet avec '{{hobby.name}}'" data-item-id="{{hobby._id}}"><i class="fas fa-dice"></i></a></div>
+                    <div class="hobby-item item-options" data-item-id="{{hobby._id}}">{{hobby.name}}</div>
+                    <div class="niveau-vide left right"> </div>
+                    <div class="niveau right">{{configVal 'niveaux' hobby.system.niveau}}</div>
+                {{/if}}
+            {{/each}}
+            {{#if hobbies}}
+                <div class="vide left right bottom"> </div>
+                <div class="vide bottom"> </div>
+                <div class="vide bottom"> </div>
+                <div class="vide bottom left right"> </div>
+                <div class="vide right bottom"> </div>
+            {{/if}}
+        </div>
+        <div class="carac-sec-grid">
+            <div class="carac-sec-max stress all">
+                <label>Stress </label>
+                <input name="system.stress.value" type="number" value="{{data.system.stress.value}}" min="0" max="{{data.system.stress.max}}" placeholder="0"/>
+                <label class="separateur">/</label>
+                <input name="system.stress.max" type="number" value="{{data.system.stress.max}}" min="0" placeholder="0"/>
+            </div>
+            <div class="carac-sec-max sante top right bottom">
+                <label>Santé </label>
+                <input name="system.sante.value" type="number" value="{{data.system.sante.value}}" min="0" max="{{data.system.sante.max}}" placeholder="0"/>
+                <label class="separateur">/</label>
+                <input name="system.sante.max" type="number" value="{{data.system.sante.max}}" min="0" placeholder="0"/>
+            </div>
+            <div class="carac-sec-etat etat top right bottom">
+                <label>Etat </label>
+                <div class="data">
+                    <label>Blessé (-3) </label><input type="checkbox" name="system.etat.blesse" {{checked data.system.etat.blesse}}/>
+                    <label>KO </label><input type="checkbox" name="system.etat.ko" {{checked data.system.etat.ko}}/>
+                </div>
+            </div>
+            <div class="carac-sec defense top right bottom">
+                <label>Défense passive </label>
+                <input name="system.defense" type="number" value="{{data.system.defense}}" min="0" placeholder="0"/>
+            </div>
+            <div class="carac-sec pp top right bottom">
+                <label>Points de Perso </label>
+                <input name="system.pointsPerso" type="number" value="{{data.system.pointsPerso}}" min="0" placeholder="0"/>
+            </div>
+        </div>
+        <div class="fait-marquant all">
+            <label>Faits marquants</label>
+            {{editor data.system.faitMarquant target="system.faitMarquant" button=true owner=true editable=true}}
+        </div>
+        <div class="tare-inspi-grid">
+            <label>Tares</label>
+            {{editor data.system.tare target="system.tare" button=true owner=true editable=true}}
+            <label>Inspirations</label>
+            {{editor data.system.inspiration target="system.inspiration" button=true owner=true editable=true}}
         </div>
     </section>
 </form>

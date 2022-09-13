@@ -4,7 +4,7 @@
         "templates": {
             "information": {
                 "prenom": "",
-                "age": 0,
+                "age": "",
                 "sexe": "",
                 "taille": 0,
                 "description": "",
@@ -43,10 +43,16 @@
         },
         "pj": {
             "templates": [ "information", "caracteritiques", "secondaires" ],
+            "faitMarquant": "",
+            "tare": "",
             "inspiration": "",
-            "focntion": "",
+            "fonction": "",
             "pointsPerso": 0,
-            "drame": 0
+            "etat": {
+                "blesse": false,
+                "ko": false
+            }
+            
         },
         "pnj": {
             "templates": [ "information", "caracteritiques", "secondaires" ]

@@ -315,39 +315,128 @@ flex-direction: column;
 .caracs-traits-grid .normal {
   padding: 3px;
 }
-.metiers-grid {
+.top {
+  border-top: solid 2px;
+}
+.left {
+  border-left: solid 2px;
+}
+.right {
+  border-right: solid 2px;
+}
+.bottom {
+  border-bottom: solid 2px;
+}
+.all {
+  border: solid 2px;
+}
+.metiers-grid,
+.hobbies-grid {
   display: grid;
   grid-template-columns: 2fr 2em 5fr 1.5fr 1.5fr;
   margin: 1px;
 }
-.metiers-grid .dice {
+.metiers-grid .dice,
+.hobbies-grid .dice {
   text-align: center;
 }
+.metiers-grid .niveau,
+.hobbies-grid .niveau {
+  padding-left: 3px;
+}
 .metiers-grid .metier-item,
+.hobbies-grid .metier-item,
+.metiers-grid .hobby-item,
+.hobbies-grid .hobby-item,
 .metiers-grid .dice,
-.metiers-grid .niveau {
-  margin-top: 5px;
+.hobbies-grid .dice,
+.metiers-grid .niveau,
+.hobbies-grid .niveau,
+.metiers-grid .vide,
+.hobbies-grid .vide {
+  padding-top: 5px;
   align-items: center;
 }
 .metiers-grid .metier-item.top,
+.hobbies-grid .metier-item.top,
+.metiers-grid .hobby-item.top,
+.hobbies-grid .hobby-item.top,
 .metiers-grid .dice.top,
-.metiers-grid .niveau.top {
+.hobbies-grid .dice.top,
+.metiers-grid .niveau.top,
+.hobbies-grid .niveau.top {
   margin-top: 0px;
   padding-top: 10px;
-  border-top: solid 2px;
 }
-.metiers-grid .entete-niv {
-  border-top: solid 2px;
+.carac-sec-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 1px;
 }
-.metiers-grid .entete-metier {
-  border-left: solid 2px;
-  border-top: solid 2px;
+.carac-sec-grid .carac-sec {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  padding: 3px;
+  align-items: center;
 }
-.metiers-grid .niveau.top {
-  border-right: solid 2px;
+.carac-sec-grid .carac-sec input {
+  text-align: center;
+  padding: 3px;
+  margin: 3px;
+}
+.carac-sec-grid .carac-sec-max {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1em 1fr;
+  padding: 3px;
+  align-items: center;
+}
+.carac-sec-grid .carac-sec-max input {
+  text-align: center;
+  padding: 3px;
+  margin: 3px;
+}
+.carac-sec-grid .carac-sec-max .separateur {
+  margin: 3px;
+  text-align: center;
+}
+.carac-sec-grid .carac-sec-etat {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 3px;
+  align-items: center;
+}
+.carac-sec-grid .carac-sec-etat .data {
+  display: grid;
+  grid-template-columns: 1fr 2em;
+  align-items: center;
+}
+.fait-marquant {
+  margin: 1px;
+}
+.fait-marquant label {
+  padding: 3px;
+}
+.fait-marquant .editor {
+  height: 80px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.tare-inspi-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 8.5fr;
+  margin: 1px;
+  border: solid 2px;
+}
+.tare-inspi-grid label {
+  padding: 3px;
+}
+.tare-inspi-grid .editor {
+  height: 55px;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 .editor {
-  height: 150px;
+  height: 110px;
 }
 .sheet-footer {
   border-top: solid thin #8d762b;
@@ -356,16 +445,20 @@ flex-direction: column;
   font-size: 1.2em;
 }
 .grid-item-trait,
-.grid-item-metier {
+.grid-item-metier,
+.grid-item-hobby {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 .grid-item-trait label,
 .grid-item-metier label,
+.grid-item-hobby label,
 .grid-item-trait input,
 .grid-item-metier input,
+.grid-item-hobby input,
 .grid-item-trait select,
-.grid-item-metier select {
+.grid-item-metier select,
+.grid-item-hobby select {
   margin: 2px;
 }
 .roll {

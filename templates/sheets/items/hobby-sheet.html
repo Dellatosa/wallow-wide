@@ -1,0 +1,25 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Nom du hobby"/></h1>
+    </header>
+    <div class="sheet-content hobby" data-item-id="{{item.id}}">
+        <div class="grid-item-hobby">
+            <label>Niveau</label>
+            <select name="system.niveau">
+                {{#select data.system.niveau}}
+                {{#each config.niveaux as |niveau keyNiveau|}}
+                    <option value="{{keyNiveau}}">{{niveau}}</option>
+                {{/each}}
+                {{/select}} 
+            </select>
+            <!-- <label>Spécialisation</label>
+            <input name="system.specialisation" type="text" value="{{data.system.specialisation}}" placeholder="Spécialisation"/> -->
+        </div>
+        <div class="titre-desc">Description du hobby</div> 
+        {{editor data.system.description target="system.description" button=true owner=true editable=true}}
+    </div>
+    <footer class="sheet-footer">
+        <div>Hobby</div>
+    </footer>
+</form>

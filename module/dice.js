@@ -2,6 +2,7 @@ export async function jetCaracteristique ({actor = null,
     caracteristique = null,
     trait = null,
     metier = null,
+    hobby = null,
     difficulte = null,
     afficherDialog = true,
     envoiMessage = true} = {}) {
@@ -23,6 +24,19 @@ export async function jetCaracteristique ({actor = null,
         speUtilisee = dialogOptions.speUtilisee;
     }
 
+    if(afficherDialog && hobby) {
+        let dialogOptions = await getJetHobbyOptions({cfgData: CONFIG.WallowWide, hobby: hobby});
+        
+        // On annule le jet sur les boutons 'Annuler' ou 'Fermeture'    
+        if(dialogOptions.annule) {
+            return null;
+        }
+
+        // Récupération des données de la fenêtre de dialogue pour ce jet 
+        caracteristique = dialogOptions.caracteristique;
+        //speUtilisee = dialogOptions.speUtilisee;
+    }
+
     if(!caracteristique) {
         ui.notifications.warn(`Veuillez sélectionner une caractéristique pour effectuer ce jet.`);
         return null;
@@ -33,28 +47,33 @@ export async function jetCaracteristique ({actor = null,
 
     // Définition de la formule de base du jet
     let rollFormula;
-    switch(valeur) {
-        case -3:
-            rollFormula = "{1d8,1d8,1d8}"
-            break;
-        case -2:
-            rollFormula = "{1d10,1d8,1d8}"
-            break;
-        case -1:
-            rollFormula = "{1d10,1d10,1d8}"
-            break;
-        case 0:
-            rollFormula = "{1d10,1d10,1d10}"
-            break;
-        case 1:
-            rollFormula = "{1d12,1d10,1d10}"
-            break;
-        case 2:
-            rollFormula = "{1d12,1d12,1d10}"
-            break;
-        case 3:
-            rollFormula = "{1d12,1d12,1d12}"
-            break;
+    if(actorData.etat.blesse) {
+        rollFormula = "{1d8,1d8,1d8}";
+    }
+    else {
+        switch(valeur) {
+            case -3:
+                rollFormula = "{1d8,1d8,1d8}"
+                break;
+            case -2:
+                rollFormula = "{1d10,1d8,1d8}"
+                break;
+            case -1:
+                rollFormula = "{1d10,1d10,1d8}"
+                break;
+            case 0:
+                rollFormula = "{1d10,1d10,1d10}"
+                break;
+            case 1:
+                rollFormula = "{1d12,1d10,1d10}"
+                break;
+            case 2:
+                rollFormula = "{1d12,1d12,1d10}"
+                break;
+            case 3:
+                rollFormula = "{1d12,1d12,1d12}"
+                break;
+        }
     }
 
     let rollData = {
@@ -62,7 +81,11 @@ export async function jetCaracteristique ({actor = null,
         caracteristique: nomCarac,
         valeur: valeur
     }
-        
+     
+    if(actorData.etat.blesse) {
+        rollData.blesse = actorData.etat.blesse;
+    }
+
     if(trait) {
         rollData.trait = trait.name;
     }
@@ -72,6 +95,10 @@ export async function jetCaracteristique ({actor = null,
         if(speUtilisee) {
             rollData.specialisation = metier.system.specialisation
         }
+    }
+
+    if(hobby) {
+        rollData.hobby = hobby.name;
     }
 
     let rollResult = await new Roll(rollFormula, rollData).roll({async: true});
@@ -107,7 +134,7 @@ export async function jetCaracteristique ({actor = null,
 
     rollData.dices = dices;
 
-    if(trait || metier) {
+    if(trait || metier || hobby) {
         rollData.resultat = dices.dice2.total;
     }
     else {
@@ -186,7 +213,6 @@ function _processJetMetierOptions(form) {
     }
 }
 
-
 export async function jetRelanceSpecialisation ({actor = null,
     specialisation = null,
     rollFormula = null,
@@ -228,4 +254,48 @@ export async function jetRelanceSpecialisation ({actor = null,
 
     // Affichage du message
     await ChatMessage.create(chatData);
+}
+
+// Fonction de construction de la boite de dialogue de jet de caracteristique Hobby
+async function getJetHobbyOptions({cfgData = null, hobby = null}) {
+    // Recupération du template
+    const template = "systems/wallow-wide/templates/partials/dice/dialog-jet-hobby.hbs";
+    const html = await renderTemplate(template, {cfgData: cfgData, hobby: hobby});
+
+    return new Promise( resolve => {
+        const data = {
+            title: "Jet de caractéristique avec bonus Hobby",
+            content: html,
+            buttons: {
+                jet: { // Bouton qui lance le jet de dé
+                    icon: '<i class="fas fa-dice"></i>',
+                    label: "Jeter les dés",
+                    callback: html => resolve(_processJetHobbyOptions(html[0].querySelector("form")))
+                },
+                annuler: { // Bouton d'annulation
+                    label: "Annuler",
+                    callback: html => resolve({annule: true})
+                }
+            },
+            default: "jet",
+            close: () => resolve({annule: true}) // Annulation sur fermeture de la boite de dialogue
+        }
+
+        // Affichage de la boite de dialogue
+        new Dialog(data, null).render(true);
+    });        
+}
+
+// Gestion des données renseignées dans la boite de dialogue de jet de caracteristique Hobby
+function _processJetHobbyOptions(form) {
+    /*let speUtilisee = false;
+        if(form.speUtilisee) {
+            speUtilisee = form.speUtilisee.checked;
+        }
+    */
+
+    return {
+        caracteristique: form.carac.value != "aucun" ? form.carac.value : null
+        //speUtilisee: speUtilisee
+    }
 }

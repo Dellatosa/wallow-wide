@@ -347,7 +347,26 @@ flex-direction: column;
     }
 }
 
-.metiers-grid {
+.top {
+    border-top: solid 2px;
+}
+
+.left {
+    border-left: solid 2px;
+}
+
+.right {
+    border-right: solid 2px;
+}
+
+.bottom {
+    border-bottom: solid 2px;
+}
+.all {
+    border: solid 2px;
+}
+
+.metiers-grid, .hobbies-grid {
     display: grid;
     grid-template-columns: 2fr 2em 5fr 1.5fr 1.5fr;
     margin: 1px;
@@ -356,27 +375,97 @@ flex-direction: column;
         text-align: center;
     }
 
-    .metier-item, .dice, .niveau {
-        margin-top: 5px;
+    .niveau {
+        padding-left: 3px;
+    }
+
+    .metier-item, .hobby-item, .dice, .niveau, .vide {
+        padding-top: 5px;
         align-items: center;
     }
 
-    .metier-item.top, .dice.top, .niveau.top {
+    .metier-item.top, .hobby-item.top, .dice.top, .niveau.top {
         margin-top: 0px;
         padding-top: 10px;
-        border-top: solid 2px;
+    }
+}
+
+.carac-sec-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 1px;
+
+    .carac-sec {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        padding: 3px;
+        align-items: center;
+
+        input {
+            text-align: center;
+            padding: 3px;
+            margin: 3px;
+        }
     }
 
-    .entete-niv {
-        border-top: solid 2px;
+    .carac-sec-max {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1em 1fr;
+        padding: 3px;
+        align-items: center;
+
+        input {
+            text-align: center;
+            padding: 3px;
+            margin: 3px;
+        }
+        .separateur {
+            margin: 3px;
+            text-align: center;
+        }
     }
 
-    .entete-metier {
-        border-left: solid 2px;
-        border-top: solid 2px;
+    .carac-sec-etat {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        padding: 3px;
+        align-items: center;
+
+        .data {
+            display: grid;
+            grid-template-columns: 1fr 2em;
+            align-items: center;
+        }
     }
-    .niveau.top {
-        border-right: solid 2px;
+}
+
+.fait-marquant {
+    margin: 1px;
+
+    label {
+        padding: 3px;
     }
 
+    .editor {
+        height: 80px;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}
+
+.tare-inspi-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 8.5fr;
+    margin: 1px;
+    border: solid 2px;
+
+    label {
+        padding: 3px;
+    }
+
+    .editor {
+        height: 55px;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
 }

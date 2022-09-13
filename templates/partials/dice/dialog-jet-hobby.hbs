@@ -1,0 +1,22 @@
+<form>
+    <div class="titre"><label>Caractérique pour ce jet avec '{{hobby.name}}'</label></div>
+    <div class="grid-data">
+        <label>Caractéristique</label>
+        <div class="data">
+            <select name="carac">
+            {{#select carac}}
+                {{#each cfgData.caracteristiques as |caracteristique keyCarac|}}
+                    <option value="{{keyCarac}}">{{caracteristique}}</option>
+                {{/each}}
+            {{/select}}
+            </select> 
+        </div>
+    </div>
+    <!-- {{#if metier.system.specialisation}}
+        <div class="titre"><label>Spécialisation '{{metier.system.specialisation}}'</label></div>
+        <div class="grid-data">
+            <label>Utilisée sur ce jet</label>
+            <div class="data"><input type="checkbox" name="speUtilisee"/></div>
+        </div>
+    {{/if}} -->
+</form>
