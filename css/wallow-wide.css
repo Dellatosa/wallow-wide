@@ -233,19 +233,20 @@ flex-direction: column;
   display: grid;
   grid-template-columns: 3fr 1fr;
   align-items: center;
+  outline: solid 5px var(--color-entete-card-id);
+  border-radius: 8px;
+  z-index: 1;
 }
 .identite-grid .carte-id-grid .entete {
   grid-column: 1 / 3;
   color: white;
   background-color: var(--color-entete-card-id);
-  border-radius: 8px 8px 0 0;
   height: 100%;
 }
 .identite-grid .carte-id-grid .pied {
   grid-column: 1 / 3;
   color: var(--color-entete-card-id);
   background-color: var(--color-entete-card-id);
-  border-radius: 0 0 8px 8px;
   height: 100%;
 }
 .identite-grid .carte-id-grid .portrait {
