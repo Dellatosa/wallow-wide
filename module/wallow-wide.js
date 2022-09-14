@@ -4,6 +4,7 @@ import WallowWideActor from "./WallowWideActor.js";
 import WallowWideItemSheet from "./sheets/WallowWideItemSheet.js";
 import WallowWideItem from "./WallowWideItem.js";
 import * as Chat from "./chat.js";
+import { DrameTracker } from "./drame-tracker.js";
 
 async function preloadHandlebarsTemplates() {
     const templatePaths = [
@@ -20,8 +21,15 @@ Hooks.once("init", function(){
 
     game.WallowWide = {
         WallowWideActor,
-        WallowWideItem
+        WallowWideItem,
+        DrameTracker
     };
+
+    game.WallowWide.drameTracker = new DrameTracker({
+        popOut: false,
+        minimizable: false,
+        resizable: false
+    });
 
     //CONFIG.debug.hooks = true;
 
@@ -43,3 +51,14 @@ Hooks.once("init", function(){
 })
 
 Hooks.on("renderChatLog", (app, html, data) => Chat.addChatListeners(html));
+
+Hooks.once("ready", async function() {
+    // Tracker Handling
+    // Identify if User already has ageTrackerPos flag set
+    const userTrackerFlag = await game.user.getFlag("wallow-wide", "drameTrackerPos");
+    const useTracker = true;
+    if (!userTrackerFlag) await game.user.setFlag("wallow-wide", "drameTrackerPos", WallowWide.drameTrackerPos);
+    if (useTracker) game.WallowWide.drameTracker.refresh();
+
+    console.log(game.WallowWide.drameTracker);
+});

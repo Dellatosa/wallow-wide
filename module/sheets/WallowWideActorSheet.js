@@ -4,8 +4,8 @@ export default class WallowWideActorSheet extends ActorSheet {
      
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            width: 744,
-            height: 958,
+            width: 745,
+            height: 1000,
             classes: ["wallow-wide", "sheet", "actor"],
             /*tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "competences" },
                     { navSelector: ".magie-tabs", contentSelector: ".magie-content", initial: "emprise" },

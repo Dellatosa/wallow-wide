@@ -13,3 +13,5 @@ WallowWide.niveaux = {
     expert: "Expert",
     averti: "Averti"
 }
+
+WallowWide.drameTrackerPos = {xPos: "260px", yPos: "69px"};

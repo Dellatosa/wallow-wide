@@ -1,0 +1,25 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="flexcol age-opacity-hover" id="drame-tracker">
+        {{#if isGM}}
+        <div id="drame-tracker-drag"></div>
+        {{/if}}
+        <div class="titre">
+            <div>Réserve de </div>
+            <div>Points de Drame</div>
+        </div>
+        
+        {{!-- Complication/Churn Tracker --}}
+        {{#if isGM}}
+        {{#if hasComplication}}
+        <div class="age-comp flexrow flex-align-center colorset-second-tier">
+            <a class="comp-mod refresh"><i class="fa fa-reply"></i></a>
+            {{#each compData.tracker as |v k|}}
+            <div class="comp-checkbox {{#if v.check}}full-box{{/if}} {{#if (and v.milestone k)}}milestone{{/if}}" data-box-number="{{k}}"></div>
+            {{/each}}
+            <a class="comp-mod minus"><i class="fa fa-minus"></i></a>
+            <a class="comp-mod"><i class="fa fa-plus"></i></a>
+        </div>
+        {{/if}}
+        {{/if}}
+    </div>
+</form>
