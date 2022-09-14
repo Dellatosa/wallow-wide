@@ -16,18 +16,19 @@
             <div class="carte-id-grid">
                 <div class="entete titre1">BUREAU DU SHERIF</div>
                 <div class="portrait"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /></div>
-                <div class="normal">Cette carte d'identification certifie que</div>
-                <div><input name="name" type="text" value="{{actor.name}}" placeholder="Nom"/></div>
-                <div class="normal">est mandaté par le Comté de</div>
-                <div class="normal">FAIRMONT</div>
-                <div class="normal">avec fonction de</div>
-                <div> <input name="system.fonction" type="text" value="{{data.system.fonction}}" placeholder="Fonction"/></div>
-                <div class="normal">Pour l'état du</div>
-                <div class="normal">Wyoming</div>
+                <div class="rubrique">Cette carte d'identification certifie que</div>
+                <div class="valeur"><input name="name" type="text" value="{{actor.name}}" placeholder="Nom"/></div>
+                <div class="rubrique">Est mandaté par le Comté de</div>
+                <div class="valeur">FAIRMONT</div>
+                <div class="rubrique">Avec fonction de</div>
+                <div class="valeur"> <input name="system.fonction" type="text" value="{{data.system.fonction}}" placeholder="Fonction"/></div>
+                <div class="rubrique">Pour l'état du</div>
+                <div class="valeur">Wyoming</div>
+                <div class="pied"></div>
             </div>
             <div class="points-drame-grid">
                 <div> </div>
-                <div class="age"><label>Age</label><input name="system.age" type="text" value="{{data.system.age}}" placeholder="Age"/></div>
+                <div class="age"><label>Age</label><input class="cursive" name="system.age" type="text" value="{{data.system.age}}" placeholder="Age"/></div>
                 <div class="point-drame"> </div>
                 <div class="point-drame bottom"> </div>
             </div>
@@ -38,37 +39,37 @@
             <div class="entete-car titre2">CARACTERISTIQUES</div>
             <div class="entete-trait titre2">TRAITS</div>
             <div class="carac titre3">PHYSIQUE</div>
-            <div class="carac-val"><input name="system.physique.valeur" type="number" value="{{data.system.physique.valeur}}" placeholder="0"/></div>
+            <div class="carac-val"><input class="cursive" name="system.physique.valeur" type="number" value="{{data.system.physique.valeur}}" placeholder="0"/></div>
             <div class="dice"><a class="roll-carac" title="Jet en 'Physique'" data-carac="physique"><i class="fas fa-dice"></i></a></div>
             <div class="traits">
                 {{#each traits as |trait id|}}
                     {{#if (eq trait.system.caracteristique "physique")}}
                         <div class="trait-item item-options item-box" data-item-id="{{trait._id}}" data-carac="physique">
-                            <a class="roll-trait" title="Jet en 'Physique' avec '{{trait.name}}'">{{trait.name}}</a>
+                            <a class="roll-trait cursive" title="Jet en 'Physique' avec '{{trait.name}}'">{{trait.name}}</a>
                         </div>
                     {{/if}}
                 {{/each}}
             </div>
             <div class="carac titre3">MENTAL</div>
-            <div class="carac-val"><input name="system.mental.valeur" type="number" value="{{data.system.mental.valeur}}" placeholder="0"/></div>
+            <div class="carac-val"><input class="cursive" name="system.mental.valeur" type="number" value="{{data.system.mental.valeur}}" placeholder="0"/></div>
             <div class="dice"><a class="roll-carac" title="Jet de 'Mental'" data-carac="mental"><i class="fas fa-dice"></i></a></div>
             <div class="traits">
                 {{#each traits as |trait id|}}
                     {{#if (eq trait.system.caracteristique "mental")}}
                         <div class="trait-item item-options item-box" data-item-id="{{trait._id}}" data-carac="mental">
-                            <a class="roll-trait" title="Jet en 'Mental' avec '{{trait.name}}'">{{trait.name}}</a>
+                            <a class="roll-trait cursive" title="Jet en 'Mental' avec '{{trait.name}}'">{{trait.name}}</a>
                         </div>
                     {{/if}}
                 {{/each}}
             </div>
             <div class="carac titre3 bottom">CONSCIENCE</div>
-            <div class="carac-val bottom"><input name="system.conscience.valeur" type="number" value="{{data.system.conscience.valeur}}" placeholder="0"/></div>
+            <div class="carac-val bottom"><input class="cursive" name="system.conscience.valeur" type="number" value="{{data.system.conscience.valeur}}" placeholder="0"/></div>
             <div class="dice bottom"><a class="roll-carac" title="Jet de 'Conscience'" data-carac="conscience"><i class="fas fa-dice"></i></a></div>
             <div class="traits bottom">
                 {{#each traits as |trait id|}}
                     {{#if (eq trait.system.caracteristique "conscience")}}
                         <div class="trait-item item-options item-box" data-item-id="{{trait._id}}" data-carac="conscience">
-                            <a class="roll-trait" title="Jet en 'Conscience' avec '{{trait.name}}'">{{trait.name}}</a>
+                            <a class="roll-trait cursive" title="Jet en 'Conscience' avec '{{trait.name}}'">{{trait.name}}</a>
                         </div>
                     {{/if}}
                 {{/each}}
@@ -79,15 +80,15 @@
                 {{#if (eq @index 0)}}
                     <div class="entete-metier titre3 all">METIERS</div>
                     <div class="dice top"><a class="roll-metier" title="Jet avec '{{metier.name}}'" data-item-id="{{metier._id}}"><i class="fas fa-dice"></i></a></div>
-                    <div class="metier-item item-options top" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
+                    <div class="metier-item item-options top cursive" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
                     <div class="entete-niv titre3 all">NIVEAUX</div>
-                    <div class="niveau right top">{{configVal 'niveaux' metier.system.niveau}}</div>
+                    <div class="niveau right top cursive">{{configVal 'niveaux' metier.system.niveau}}</div>
                 {{else}}
                     <div class="metier-vide left right"> </div>
                     <div class="dice"><a class="roll-metier" title="Jet avec '{{metier.name}}'" data-item-id="{{metier._id}}"><i class="fas fa-dice"></i></a></div>
-                    <div class="metier-item item-options" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
+                    <div class="metier-item item-options cursive" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
                     <div class="niveau-vide left right"> </div>
-                    <div class="niveau right">{{configVal 'niveaux' metier.system.niveau}}</div>
+                    <div class="niveau right cursive">{{configVal 'niveaux' metier.system.niveau}}</div>
                 {{/if}}
             {{/each}}
             {{#if metiers}}
@@ -103,15 +104,15 @@
                 {{#if (eq @index 0)}}
                     <div class="entete-hobby titre3 all">HOBBIES</div>
                     <div class="dice top"><a class="roll-hobby" title="Jet avec '{{hobby.name}}'" data-item-id="{{hobby._id}}"><i class="fas fa-dice"></i></a></div>
-                    <div class="hobby-item item-options top" data-item-id="{{hobby._id}}">{{hobby.name}}</div>
+                    <div class="hobby-item item-options top cursive" data-item-id="{{hobby._id}}">{{hobby.name}}</div>
                     <div class="entete-niv titre3 all">NIVEAUX</div>
-                    <div class="niveau right top">{{configVal 'niveaux' hobby.system.niveau}}</div>
+                    <div class="niveau right top cursive">{{configVal 'niveaux' hobby.system.niveau}}</div>
                 {{else}}
                     <div class="hobby-vide left right"> </div>
                     <div class="dice"><a class="roll-hobby" title="Jet avec '{{hobby.name}}'" data-item-id="{{hobby._id}}"><i class="fas fa-dice"></i></a></div>
-                    <div class="hobby-item item-options" data-item-id="{{hobby._id}}">{{hobby.name}}</div>
+                    <div class="hobby-item item-options cursive" data-item-id="{{hobby._id}}">{{hobby.name}}</div>
                     <div class="niveau-vide left right"> </div>
-                    <div class="niveau right">{{configVal 'niveaux' hobby.system.niveau}}</div>
+                    <div class="niveau right cursive">{{configVal 'niveaux' hobby.system.niveau}}</div>
                 {{/if}}
             {{/each}}
             {{#if hobbies}}
@@ -125,15 +126,15 @@
         <div class="carac-sec-grid">
             <div class="carac-sec-max stress all">
                 <label>Stress </label>
-                <input name="system.stress.value" type="number" value="{{data.system.stress.value}}" min="0" max="{{data.system.stress.max}}" placeholder="0"/>
-                <label class="separateur">/</label>
-                <input name="system.stress.max" type="number" value="{{data.system.stress.max}}" min="0" placeholder="0"/>
+                <input class="cursive" name="system.stress.value" type="number" value="{{data.system.stress.value}}" min="0" max="{{data.system.stress.max}}" placeholder="0"/>
+                <label class="separateur cursive">/</label>
+                <input class="cursive" name="system.stress.max" type="number" value="{{data.system.stress.max}}" min="0" placeholder="0"/>
             </div>
             <div class="carac-sec-max sante top right bottom">
                 <label>Santé </label>
-                <input name="system.sante.value" type="number" value="{{data.system.sante.value}}" min="0" max="{{data.system.sante.max}}" placeholder="0"/>
-                <label class="separateur">/</label>
-                <input name="system.sante.max" type="number" value="{{data.system.sante.max}}" min="0" placeholder="0"/>
+                <input class="cursive" name="system.sante.value" type="number" value="{{data.system.sante.value}}" min="0" max="{{data.system.sante.max}}" placeholder="0"/>
+                <label class="separateur cursive">/</label>
+                <input class="cursive" name="system.sante.max" type="number" value="{{data.system.sante.max}}" min="0" placeholder="0"/>
             </div>
             <div class="carac-sec-etat etat top right bottom">
                 <label>Etat </label>
@@ -144,11 +145,11 @@
             </div>
             <div class="carac-sec defense top right bottom">
                 <label>Défense passive </label>
-                <input name="system.defense" type="number" value="{{data.system.defense}}" min="0" placeholder="0"/>
+                <input class="cursive" name="system.defense" type="number" value="{{data.system.defense}}" min="0" placeholder="0"/>
             </div>
             <div class="carac-sec pp top right bottom">
                 <label>Points de Perso </label>
-                <input name="system.pointsPerso" type="number" value="{{data.system.pointsPerso}}" min="0" placeholder="0"/>
+                <input class="cursive" name="system.pointsPerso" type="number" value="{{data.system.pointsPerso}}" min="0" placeholder="0"/>
             </div>
         </div>
         <div class="fait-marquant all">

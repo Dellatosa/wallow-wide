@@ -166,24 +166,39 @@ flex-direction: column;
 }
 */
 
-.window-app .window-content {
-    //background: url("../images/indieground-vintagepaper-textures-01.jpg") repeat;
-    background: url("../images/old-document-size-paper2.jpg");
+.window-app.wallow-wide .window-content {
+    //background: url("../images/old-document-size-paper2.jpg") repeat;
+    background: url("../images/56-High-Quality-Old-Paper-Texture-Downloads-Completely-Free.jpg");
     background-size: cover;
+
+    //font-family: 'Kalam', cursive;
+    //font-family: 'Architects Daughter', cursive;
+    //font-family: 'Shadows Into Light', cursive;
+    //font-family: 'Shadows Into Light Two', cursive;
+    //font-family: 'Handlee', cursive;
+    //font-family: 'Indie Flower', cursive;
+
+    //font-family: 'Courier Prime', monospace;
+    font-family: 'Roboto', sans-serif;
+
+    input[type="text"].cursive, input[type="number"].cursive, .cursive, .editor {
+        font-family: cursive;
+        color: var(--color-text-cursive);
+    }
 }
 
 .titre1 {
-    padding: 3px;
+    padding: 2px 3px;
     font-size: 2em;
 }
 
 .titre2 {
-    padding: 3px;
+    padding: 2px 3px;
     font-size: 1.5em;
 }
 
 .titre3 {
-    padding: 3px;
+    padding: 2px 3px;
     font-size: 1.25em;
 }
 
@@ -216,7 +231,7 @@ flex-direction: column;
         }
 
         .normal {
-            padding: 3px;
+            padding: 2px 3px;
         }
     }
 
@@ -239,10 +254,24 @@ flex-direction: column;
     .carte-id-grid {
         display: grid;
         grid-template-columns: 3fr 1fr;
-        margin: 2px;
+        align-items: center;
+        border-left: solid 2px var(--color-entete-card-id);
+        border-right: solid 2px var(--color-entete-card-id);
+        border-radius: 5px;
 
         .entete {
             grid-column: 1 / 3;
+            color: white;
+            background-color: var(--color-entete-card-id);
+            //border-radius: 5px 5px 0 0;
+        }
+
+        .pied {
+            grid-column: 1 / 3;
+            color: var(--color-entete-card-id);
+            background-color: var(--color-entete-card-id);
+            //border-radius: 0 0 5px 5px;
+            height: 16px;
         }
 
         .portrait {
@@ -254,8 +283,14 @@ flex-direction: column;
             }
         }
 
-        .normal {
-            padding: 3px;
+        .rubrique {
+            padding: 0 3px;
+            font-weight: bold;
+            color: var(--color-titre-rub-card-id);
+        }
+
+        .valeur {
+            padding: 0 3px;
         }
     }
 }
@@ -348,22 +383,22 @@ flex-direction: column;
 }
 
 .top {
-    border-top: solid 2px;
+    border-top: solid 2px black;
 }
 
 .left {
-    border-left: solid 2px;
+    border-left: solid 2px black;
 }
 
 .right {
-    border-right: solid 2px;
+    border-right: solid 2px black;
 }
 
 .bottom {
-    border-bottom: solid 2px;
+    border-bottom: solid 2px black;
 }
 .all {
-    border: solid 2px;
+    border: solid 2px black;
 }
 
 .metiers-grid, .hobbies-grid {
@@ -460,7 +495,7 @@ flex-direction: column;
     border: solid 2px;
 
     label {
-        padding: 3px;
+        padding: 3px;                
     }
 
     .editor {
