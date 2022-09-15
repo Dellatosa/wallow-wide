@@ -43,7 +43,10 @@
         </div> 
     </div>
     <div class="resultat"><label>Résultat : {{stats.resultat}}</label></div>
-    {{#if stats.specialisation}}        
+    {{#if stats.specialisation}}
         <div class="btn-spec"><button class="spec" data-actor-id="{{actorId}}" data-spec="{{stats.specialisation}}" data-resultat="{{stats.resultat}}" data-faces="{{stats.dices.dice0.faces}}">{{stats.specialisation}}</button></div>
+    {{/if}}
+    {{#if stats.depenseDrame}}
+        <div class="btn-drame"><button class="drame" data-actor-id="{{actorId}}" data-resultat="{{stats.dices.dice2.total}}">Dépenser un point de Drame</button></div>
     {{/if}}
 </div>

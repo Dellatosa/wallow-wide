@@ -139,10 +139,32 @@ export async function jetCaracteristique ({actor = null,
         actor.utiliserPointDrame();
     }
     else if(metier) {
-        rollData.resultat = dices.dice2.total;
+        if(metier.system.niveau == "maitre") {
+            rollData.resultat = dices.dice2.total;    
+        }
+        else if(metier.system.niveau == "expert") {
+            rollData.resultat = dices.dice1.total;            
+            // TODO Gérer le bouton de reroll
+            rollData.depenseDrame = true;
+        }
+        else {
+            rollData.resultat = dices.dice2.total;
+            actor.utiliserPointDrame();    
+        }
     }
     else if(hobby) {
-        rollData.resultat = dices.dice2.total;
+        if(hobby.system.niveau == "maitre") {
+            rollData.resultat = dices.dice2.total;    
+        }
+        else if(hobby.system.niveau == "expert") {
+            rollData.resultat = dices.dice1.total;            
+            // TODO Gérer le bouton de reroll
+            rollData.depenseDrame = true;
+        }
+        else {
+            rollData.resultat = dices.dice2.total;
+            actor.utiliserPointDrame();    
+        }
     }
     else {
         rollData.resultat = dices.dice1.total;
