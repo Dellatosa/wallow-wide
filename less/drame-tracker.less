@@ -11,6 +11,18 @@
     cursor: move;
 }
 
+.flexcol {
+    display: flex;
+    flex-direction: column;
+}
+
+.wallow-opacity-hover {
+    opacity: 0.6;
+}
+.wallow-opacity-hover:hover {
+    opacity: 0.9;
+}
+
 #drame-tracker {
     position: absolute;
     width: 800px;
@@ -20,27 +32,29 @@
     display: inline-block;
     z-index: 50;
 
-    .titre {
+    .grid-tracker {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
         color: white;
         text-align: center;
+        align-items: center;
+
+        .titre, .valeur {
+            grid-column: 1 / 4;
+        }
+    
+        .valeur {
+            font-size: 3em;
+        }
+
+        .lst-pj {
+            grid-column: 2 / 4;
+        }
     }
 
     a {
-        padding-top: 4px;
+        //padding-top: 4px;
         text-shadow: none;
-    }
-    div.age-serendipity {
-        max-width: max-content;
-        border-radius: 10px;
-        padding: 4px;
-        a.ser-mod {
-            margin-top: 2px;
-            margin-left: 8px;
-            margin-right: 8px;
-        }
-        .inactive {
-            opacity: 0.3;
-        }
     }
 
     .age-comp {
@@ -73,16 +87,4 @@
             cursor: pointer;
         }
     }
-}
-
-.flexcol {
-    display: flex;
-    flex-direction: column;
-}
-
-.age-opacity-hover {
-    opacity: 0.6;
-}
-.age-opacity-hover:hover {
-    opacity: 0.9;
 }

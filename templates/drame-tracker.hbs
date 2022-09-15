@@ -1,11 +1,14 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="flexcol age-opacity-hover" id="drame-tracker">
+    <div class="wallow-opacity-hover" id="drame-tracker"> {{!-- flexcol --}}
         {{#if isGM}}
         <div id="drame-tracker-drag"></div>
         {{/if}}
-        <div class="titre">
-            <div>Réserve de </div>
-            <div>Points de Drame</div>
+
+        <div class="grid-tracker">
+            <div class="titre">Réserve de points de Drame</div>
+            <div class="valeur">{{reservePointsDrame}}</div>
+            <a class="tracker-reinit" title="Réinitialiser la réserve"><i class="fa-solid fa-recycle"></i></a>
+            <div class="lst-pj">Personnages <i class="fa-solid fa-circle-chevron-right"></i></div>
         </div>
         
         {{!-- Complication/Churn Tracker --}}

@@ -9,7 +9,8 @@
                 "taille": 0,
                 "description": "",
                 "couleurCheveux": "",
-                "couleurYeux": ""
+                "couleurYeux": "",
+                "fonction": ""
             },
             "caracteritiques": {
                 "physique": {
@@ -38,6 +39,10 @@
                     "max": 0
                   },
                 "defense": 0,
+                "etat": {
+                    "blesse": false,
+                    "ko": false
+                },
                 "bonusInitiative": 0
             }
         },
@@ -46,13 +51,8 @@
             "faitMarquant": "",
             "tare": "",
             "inspiration": "",
-            "fonction": "",
             "pointsPerso": 0,
-            "etat": {
-                "blesse": false,
-                "ko": false
-            }
-            
+            "pointsDrame": 0
         },
         "pnj": {
             "templates": [ "information", "caracteritiques", "secondaires" ]
@@ -62,7 +62,7 @@
         }
     },
     "Item": {
-        "types": ["trait", "metier", "hobby", "tare", "faitMarquant", "arme", "equipement"],
+        "types": ["trait", "metier", "hobby", "arme", "equipement"],
         "templates": {
             "base": {
                 "description": ""
@@ -80,12 +80,6 @@
         "hobby": {
             "templates": [ "base" ],
             "niveau": ""
-        },
-        "tare": {
-            "templates": [ "base" ]
-        },
-        "faitMarquant": {
-            "templates": [ "base" ]
         },
         "arme": {
             "type": "",

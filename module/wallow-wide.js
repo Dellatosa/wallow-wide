@@ -1,4 +1,5 @@
 import { WallowWide } from "./config.js";
+import { registerSystemSettings } from "./settings.js";
 import WallowWideActorSheet from "./sheets/WallowWideActorSheet.js";
 import WallowWideActor from "./WallowWideActor.js";
 import WallowWideItemSheet from "./sheets/WallowWideItemSheet.js";
@@ -43,6 +44,8 @@ Hooks.once("init", function(){
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("wallow-wide", WallowWideItemSheet, {makeDefault: true});
 
+    registerSystemSettings();
+    
     preloadHandlebarsTemplates();
 
     Handlebars.registerHelper("configVal", function(liste, val) {

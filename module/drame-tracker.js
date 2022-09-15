@@ -17,28 +17,20 @@ export class DrameTracker extends Application {
 	getData(options) {
 		const data = super.getData(options);
 		data.isGM = game.user.isGM;
-		
-		/*data.hasSerendipity = game.settings.get("age-system", "serendipity");
-		if (data.hasSerendipity) {
-			const serData = game.settings.get("age-system", "serendipityValue");
-			if (serData.actual > serData.max) {
-				serData.actual = serData.max;
-				game.settings.set("age-system", "serendipityValue", serData);
-			};
-			const sides = 6;
-			let total = serData.actual
-			data.serDie = new Array(Math.ceil(serData.max/sides));
-			for (let d = 0; d < data.serDie.length; d++) {
-				data.serDie[d] = {};
-				data.serDie[d].min = d*sides + 1;
-				data.serDie[d].inactive = d*sides < serData.actual ? false : true;
-				const diff = total - sides;
-				data.serDie[d].value = diff >= 0 ? sides : total < 0 ? 0 : total;
-				total = diff;
-			}
-		}
 
-		const compType = game.settings.get("age-system", "complication");
+		let actors = game.actors.filter(function (actor) { return actor.type == "pj"});
+
+		let pointsDramePJ = 0;
+		actors.forEach(actor => {
+			if(actor.system.pointsDrame) {
+				pointsDramePJ += actor.system.pointsDrame;
+			}
+		});
+
+		let DefTailleReserve = game.settings.get("wallow-wide", "tailleReservePointsDrame");
+		data.reservePointsDrame = Math.max(DefTailleReserve - pointsDramePJ, 0);
+
+		/*const compType = game.settings.get("age-system", "complication");
 		data.hasComplication = (compType === "none") ? false : true;
 		if (data.hasComplication) {
 			const compData = game.settings.get("age-system", "complicationValue");
@@ -57,7 +49,7 @@ export class DrameTracker extends Application {
 	
 	activateListeners(html) {
 		super.activateListeners(html);
-		html.find(".comp-mod").click(this._onClickComp.bind(this));
+		html.find(".tracker-reinit").click(this._onTrackerReinit.bind(this));
 		html.find(".milestone").click(this._onRollComp.bind(this));		
 		html.find("#drame-tracker-drag").contextmenu(this._onRightClick.bind(this));
 
@@ -73,6 +65,20 @@ export class DrameTracker extends Application {
 	
 	refresh() {
 		this.render(true);
+	}
+
+	_onTrackerReinit(event) {
+		event.preventDefault();		
+
+		let actors = game.actors.filter(function (actor) { return actor.type == "pj"});
+		console.log(actors);
+
+		actors.forEach(actor => {
+			actor.update({"system.pointsDrame": 0});
+		});
+
+		//TO DO - Pb aevc le refresh alors que l'update est OK
+		this.refresh();
 	}
 
 	_onRightClick(event) {
