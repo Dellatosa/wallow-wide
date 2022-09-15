@@ -19,4 +19,18 @@ export default class WallowWideActor extends Actor {
         if(data.defense < 0) {data.defense = 0; }
         if(data.pointsPerso < 0) {data.pointsPerso = 0; }
     }
+
+    reinitPointDrame() {
+        this.update({"system.pointsDrame": 0});
+    }
+
+    utiliserPointDrame() {
+        this.update({"system.pointsDrame": this.system.pointsDrame + 1});
+    }
+}
+
+Hooks.on("updateActor", (actor, data, diff, id) => onUpdateActor());
+
+function onUpdateActor() {
+    game.WallowWide.drameTracker.refresh();
 }

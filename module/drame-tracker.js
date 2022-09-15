@@ -67,6 +67,11 @@ export class DrameTracker extends Application {
 		this.render(true);
 	}
 
+	getNbPointsReserve() {
+		let element = document.getElementById("tracker-val");
+		return element.dataset.valeur;
+	}
+
 	_onTrackerReinit(event) {
 		event.preventDefault();		
 
@@ -74,11 +79,8 @@ export class DrameTracker extends Application {
 		console.log(actors);
 
 		actors.forEach(actor => {
-			actor.update({"system.pointsDrame": 0});
+			actor.reinitPointDrame();
 		});
-
-		//TO DO - Pb aevc le refresh alors que l'update est OK
-		this.refresh();
 	}
 
 	_onRightClick(event) {

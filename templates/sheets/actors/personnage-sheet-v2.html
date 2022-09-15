@@ -22,7 +22,7 @@
                 <div class="rubrique">Est mandaté par le Comté de</div>
                 <div class="valeur">FAIRMONT</div>
                 <div class="rubrique">Avec fonction de</div>
-                <div class="valeur"> <input name="system.fonction" type="text" value="{{data.system.fonction}}" placeholder="Fonction"/></div>
+                <div class="valeur"><input name="system.fonction" type="text" value="{{data.system.fonction}}" placeholder="Fonction"/></div>
                 <div class="rubrique">Pour l'état du</div>
                 <div class="valeur">Wyoming</div>
                 <div class="pied">-</div>
@@ -30,8 +30,16 @@
             <div class="points-drame-grid">
                 <div> </div>
                 <div class="age"><label>Age</label><input class="cursive" name="system.age" type="text" value="{{data.system.age}}" placeholder="Age"/></div>
-                <div class="point-drame"> </div>
-                <div class="point-drame bottom"> </div>
+                <div class="point-drame">
+                    {{#if (gte data.system.pointsDrame 1)}}
+                        <img src="systems/wallow-wide/images/token-point-drame.png">
+                    {{/if}}
+                </div>
+                <div class="point-drame bottom">
+                    {{#if (gte data.system.pointsDrame 2)}}
+                    <img src="systems/wallow-wide/images/token-point-drame.png">
+                    {{/if}}
+                </div>
             </div>
         </div>
     </div>

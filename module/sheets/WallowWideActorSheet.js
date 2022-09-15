@@ -128,6 +128,17 @@ export default class WallowWideActorSheet extends ActorSheet {
 
         let traitId = dataset.itemId;
         const trait = this.actor.items.get(traitId);
+        let reserveDrame = game.WallowWide.drameTracker.getNbPointsReserve();
+        
+        if(reserveDrame < 1) {
+            ui.notifications.warn("Il n'y a plus de points de Drame dans la réserve !");    
+            return;
+        }
+
+        if(this.actor.system.pointsDrame == 2) {
+            ui.notifications.warn("Vous avez déjà utilisé vos deux points de Drame !");    
+            return;
+        }
 
         Dice.jetCaracteristique({
             actor: this.actor,
@@ -157,6 +168,8 @@ export default class WallowWideActorSheet extends ActorSheet {
 
         let hobbyId = dataset.itemId;
         const hobby = this.actor.items.get(hobbyId);
+
+        console.log("reserve", game.WallowWide.drameTracker.getNbPointsReserve());
 
         Dice.jetCaracteristique({
             actor: this.actor,

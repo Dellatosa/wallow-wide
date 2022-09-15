@@ -62,6 +62,4 @@ Hooks.once("ready", async function() {
     const useTracker = true;
     if (!userTrackerFlag) await game.user.setFlag("wallow-wide", "drameTrackerPos", WallowWide.drameTrackerPos);
     if (useTracker) game.WallowWide.drameTracker.refresh();
-
-    console.log(game.WallowWide.drameTracker);
 });

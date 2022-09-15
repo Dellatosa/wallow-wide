@@ -134,7 +134,14 @@ export async function jetCaracteristique ({actor = null,
 
     rollData.dices = dices;
 
-    if(trait || metier || hobby) {
+    if(trait) {
+        rollData.resultat = dices.dice2.total;
+        actor.utiliserPointDrame();
+    }
+    else if(metier) {
+        rollData.resultat = dices.dice2.total;
+    }
+    else if(hobby) {
         rollData.resultat = dices.dice2.total;
     }
     else {
