@@ -297,7 +297,7 @@ flex-direction: column;
 }
 .points-drame-grid .point-drame {
   border-style: solid;
-  border-width: 1px 2px 1px 2px;
+  border-width: 1px 2px 1px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -308,12 +308,11 @@ flex-direction: column;
 }
 .points-drame-grid .point-drame.bottom {
   border-style: solid;
-  border-width: 1px 2px 2px 2px;
+  border-width: 1px 2px 0 0;
 }
 .caracs-traits-grid {
   display: grid;
   grid-template-columns: 3fr 1fr 2em 6fr;
-  margin: 1px;
 }
 .caracs-traits-grid .entete-car {
   grid-column: 1 / 4;
@@ -379,11 +378,13 @@ flex-direction: column;
 .all {
   border: solid 2px black;
 }
+.espacement {
+  height: 5px;
+}
 .metiers-grid,
 .hobbies-grid {
   display: grid;
   grid-template-columns: 2fr 2em 5fr 1.5fr 1.5fr;
-  margin: 1px;
 }
 .metiers-grid .entete-metier,
 .hobbies-grid .entete-metier,
@@ -429,7 +430,6 @@ flex-direction: column;
 .carac-sec-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  margin: 1px;
 }
 .carac-sec-grid .carac-sec {
   display: grid;
@@ -468,9 +468,6 @@ flex-direction: column;
   grid-template-columns: 1fr 2em;
   align-items: center;
 }
-.fait-marquant {
-  margin: 1px;
-}
 .fait-marquant label {
   padding: 3px;
 }
@@ -482,7 +479,6 @@ flex-direction: column;
 .tare-inspi-grid {
   display: grid;
   grid-template-columns: 1.5fr 8.5fr;
-  margin: 1px;
   border: solid 2px;
 }
 .tare-inspi-grid label {
@@ -673,39 +669,15 @@ flex-direction: column;
   background-position: center;
   background-repeat: no-repeat;
 }
-#drame-tracker .grid-tracker .lst-pj {
+#drame-tracker .grid-tracker .lst-persos {
   grid-column: 2 / 4;
 }
 #drame-tracker a {
   text-shadow: none;
 }
-#drame-tracker .age-comp {
-  margin-top: 8px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border-radius: 5px;
-  flex-wrap: nowrap;
-  max-width: max-content;
+#drame-tracker #context-menu {
+  width: 200px;
 }
-#drame-tracker .age-comp a {
-  flex: 0 0 16px;
-}
-#drame-tracker .age-comp a i {
-  width: 16px;
-  height: 16px;
-}
-#drame-tracker .age-comp .comp-checkbox {
-  flex: 0 0 auto;
-  margin: auto 2px auto 2px;
-  border-radius: 50%;
-  height: 10px;
-  width: 10px;
-  background: none;
-  border: 1px solid;
-  background-color: #ffffff;
-}
-#drame-tracker .age-comp .milestone.milestone {
-  height: 16px;
-  width: 16px;
-  cursor: pointer;
+#drame-tracker #context-menu .context-item {
+  text-align: left;
 }

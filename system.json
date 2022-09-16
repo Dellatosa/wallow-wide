@@ -20,7 +20,7 @@
   ],
   "gridDistance": 1.5,
   "gridUnits": "m",
-  "initiative": "1d10",
+  "initiative": "@defense + 1d10",
   "primaryTokenAttribute": "caracSecondaires.pdv",
   "url": "https://github.com/Dellatosa/wallow-wide",
   "manifest": "https://raw.githubusercontent.com/Dellatosa/wallow-wide/main/system.json",

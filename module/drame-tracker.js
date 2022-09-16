@@ -30,27 +30,14 @@ export class DrameTracker extends Application {
 		let DefTailleReserve = game.settings.get("wallow-wide", "tailleReservePointsDrame");
 		data.reservePointsDrame = Math.max(DefTailleReserve - pointsDramePJ, 0);
 
-		/*const compType = game.settings.get("age-system", "complication");
-		data.hasComplication = (compType === "none") ? false : true;
-		if (data.hasComplication) {
-			const compData = game.settings.get("age-system", "complicationValue");
-			compData.type = compType;
-			compData.tracker = new Array(compData.max);
-			for (let b = 0; b < compData.tracker.length; b++) {
-				compData.tracker[b] = {};
-				compData.tracker[b].check = (compData.actual-1 >= b) ? true : false;
-				compData.tracker[b].milestone = ((b+1) % 10 === 0) ? true : false;
-			};
-			data.compData = compData;
-		};*/
-
 		return data;
 	}
 	
 	activateListeners(html) {
 		super.activateListeners(html);
-		html.find(".tracker-reinit").click(this._onTrackerReinit.bind(this));
-		html.find(".milestone").click(this._onRollComp.bind(this));		
+		
+		new ContextMenu(html, ".lst-persos", this.getPersosContextMenu());
+		html.find(".tracker-reinit").click(this._onTrackerReinit.bind(this));	
 		html.find("#drame-tracker-drag").contextmenu(this._onRightClick.bind(this));
 
 		// Set position
@@ -85,33 +72,32 @@ export class DrameTracker extends Application {
 
 	_onRightClick(event) {
 		const tracker = event.currentTarget.closest("#drame-tracker");
-		const original = CONFIG.ageSystem.ageTrackerPos;
+		const original = CONFIG.WallowWide.drameTrackerPos;
 		tracker.style.left = original.xPos;
 		tracker.style.bottom = original.yPos;
 		game.user.setFlag("wallow-wide", "drameTrackerPos", original);
 	}
 
-	_onClickComp(event) {
-		event.preventDefault();
-		/*const compData = game.settings.get("age-system", "complicationValue");
-		if (event.currentTarget.classList.contains('refresh')) return game.settings.set("age-system", "complicationValue", {max: compData.max, actual: 0});
-		let value;
-		if (event.shiftKey) value = 10;
-		if (!value && event.ctrlKey) value = 5;
-		if (!value) value = 1;
-		if (event.currentTarget.classList.contains('minus')) value = -value;
-		compData.actual += value;
-		if (compData.actual > compData.max) compData.actual = compData.max;
-		if (compData.actual < 0) compData.actual = 0;
-		game.settings.set("age-system", "complicationValue", compData);*/
-	}
+	getPersosContextMenu() {
+		let persosContextMenu = [];
 
-	async _onRollComp() {
-		/*const compType = game.i18n.localize(`SETTINGS.comp${game.settings.get("age-system", "complication")}`);
-		const flavor = game.i18n.format("age-system.chatCard.compRoll", {compType});
-		let compRoll = new Roll("1d6");
-		return await compRoll.toMessage({flavor, rollMode: "selfroll", whisper: [game.user.id]});*/
+		let actors = game.actors.filter(function (actor) { return actor.type == "pj"});
+		actors.forEach(actor => {
+			if(actor.system.pointsDrame >= 1) {
+				let actorEntry = {
+					name: actor.name,
+					icon: '<i class="fa-solid fa-hat-cowboy"></i>',
+					callback: e => {
+						actor.restituerPointDrame();
+					}
+				}
+				persosContextMenu.push(actorEntry);
+			}
+		});
+
+		return persosContextMenu;
 	}
+	
 
 	_dragElement(elmnt) {
 		var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;

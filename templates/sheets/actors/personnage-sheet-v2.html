@@ -84,6 +84,7 @@
                 {{/each}}
             </div>
         </div>
+        <div class="espacement left right"> </div>
         <div class="metiers-grid">
             {{#each metiers as |metier id|}}
                 {{#if (eq @index 0)}}
@@ -100,13 +101,7 @@
                     <div class="niveau right cursive">{{configVal 'niveaux' metier.system.niveau}}</div>
                 {{/if}}
             {{/each}}
-            {{#if metiers}}
-                <div class="vide left right bottom"> </div>
-                <div class="vide bottom"> </div>
-                <div class="vide bottom"> </div>
-                <div class="vide bottom left right"> </div>
-                <div class="vide right bottom"> </div>
-            {{/if}}
+            
         </div>
         <div class="hobbies-grid">
             {{#each hobbies as |hobby id|}}
@@ -125,25 +120,26 @@
                 {{/if}}
             {{/each}}
             {{#if hobbies}}
-                <div class="vide left right bottom"> </div>
+                <div class="vide left right"> </div>
                 <div class="vide bottom"> </div>
                 <div class="vide bottom"> </div>
-                <div class="vide bottom left right"> </div>
+                <div class="vide left right"> </div>
                 <div class="vide right bottom"> </div>
             {{/if}}
         </div>
+        <div class="espacement left right"> </div>
         <div class="carac-sec-grid">
             <div class="carac-sec-max stress all">
                 <label>Stress </label>
                 <input class="cursive" name="system.stress.value" type="number" value="{{data.system.stress.value}}" min="0" max="{{data.system.stress.max}}" placeholder="0"/>
                 <label class="separateur cursive">/</label>
-                <input class="cursive" name="system.stress.max" type="number" value="{{data.system.stress.max}}" min="0" placeholder="0"/>
+                <input class="cursive" name="system.stress.max" type="number" value="{{data.system.stress.max}}" readonly/>
             </div>
             <div class="carac-sec-max sante top right bottom">
                 <label>Santé </label>
                 <input class="cursive" name="system.sante.value" type="number" value="{{data.system.sante.value}}" min="0" max="{{data.system.sante.max}}" placeholder="0"/>
                 <label class="separateur cursive">/</label>
-                <input class="cursive" name="system.sante.max" type="number" value="{{data.system.sante.max}}" min="0" placeholder="0"/>
+                <input class="cursive" name="system.sante.max" type="number" value="{{data.system.sante.max}}" readonly/>
             </div>
             <div class="carac-sec-etat etat top right bottom">
                 <label>Etat </label>
@@ -154,14 +150,14 @@
             </div>
             <div class="carac-sec defense top right bottom">
                 <label>Défense passive </label>
-                <input class="cursive" name="system.defense" type="number" value="{{data.system.defense}}" min="0" placeholder="0"/>
+                <input class="cursive" name="system.defense" type="number" value="{{data.system.defense}}" readonly/>
             </div>
             <div class="carac-sec pp top right bottom">
                 <label>Points de Perso </label>
                 <input class="cursive" name="system.pointsPerso" type="number" value="{{data.system.pointsPerso}}" min="0" placeholder="0"/>
             </div>
         </div>
-        <div class="fait-marquant all">
+        <div class="fait-marquant left right">
             <label>Faits marquants</label>
             {{editor data.system.faitMarquant target="system.faitMarquant" button=true owner=true editable=true}}
         </div>
