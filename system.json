@@ -26,6 +26,6 @@
   "initiative": "@defense + 1d10",
   "primaryTokenAttribute": "sante",
   "url": "https://github.com/Dellatosa/wallow-wide",
-  "manifest": "https://raw.githubusercontent.com/Dellatosa/wallow-wide/main/system.json",
+  "manifest": "https://raw.githubusercontent.com/Dellatosa/wallow-wide/master/system.json",
   "download": "https://github.com/Dellatosa/wallow-wide/archive/refs/tags/v0.1.0.zip"
 }
