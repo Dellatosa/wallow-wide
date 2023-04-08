@@ -66,24 +66,6 @@ export default class WallowWideActorSheet extends ActorSheet {
     }
 
     traitContextMenu = [
-        /*{
-            name: game.i18n.localize("age-system.showOnChat"),
-            icon: '<i class="far fa-eye"></i>',
-            callback: e => {
-                const data = e[0].dataset;
-                const item = this.actor.items.get(data.itemId);
-                item.showItem(e.shiftKey)
-            }
-        },
-        {
-            name: game.i18n.localize("age-system.ageRollOptions"),
-            icon: '<i class="fas fa-dice"></i>',
-            callback: e => {
-                const focus = this.actor.items.get(e.data("item-id"));
-                const ev = new MouseEvent('click', {altKey: true});
-                focus.roll(ev);
-            }
-        },*/
         {
             name: "Editer",
             icon: '<i class="fas fa-edit"></i>',

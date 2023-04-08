@@ -36,7 +36,8 @@ export class DrameTracker extends Application {
 	activateListeners(html) {
 		super.activateListeners(html);
 		
-		new ContextMenu(html, ".lst-persos", this.getPersosContextMenu());
+		new ContextMenu(html, ".lst-persos-in", this.getPersosInContextMenu());
+		new ContextMenu(html, ".lst-persos-out", this.getPersosOutContextMenu());
 		html.find(".tracker-reinit").click(this._onTrackerReinit.bind(this));	
 		html.find("#drame-tracker-drag").contextmenu(this._onRightClick.bind(this));
 
@@ -78,7 +79,7 @@ export class DrameTracker extends Application {
 		game.user.setFlag("wallow-wide", "drameTrackerPos", original);
 	}
 
-	getPersosContextMenu() {
+	getPersosInContextMenu() {
 		let persosContextMenu = [];
 
 		let actors = game.actors.filter(function (actor) { return actor.type == "pj"});
@@ -98,6 +99,36 @@ export class DrameTracker extends Application {
 		return persosContextMenu;
 	}
 	
+	getPersosOutContextMenu() {
+		let persosContextMenu = [];
+
+		let actors = game.actors.filter(function (actor) { return actor.type == "pj"});
+
+		let pointsDramePJ = 0;
+		actors.forEach(actor => {
+			if(actor.system.pointsDrame) {
+				pointsDramePJ += actor.system.pointsDrame;
+			}
+		});
+
+		let DefTailleReserve = game.settings.get("wallow-wide", "tailleReservePointsDrame");
+		let reservePointsDrame = Math.max(DefTailleReserve - pointsDramePJ, 0);
+
+		actors.forEach(actor => {
+			if(actor.system.pointsDrame <= 1 && reservePointsDrame > 0) {
+				let actorEntry = {
+					name: actor.name,
+					icon: '<i class="fa-solid fa-hat-cowboy"></i>',
+					callback: e => {
+						actor.utiliserPointDrame();
+					}
+				}
+				persosContextMenu.push(actorEntry);
+			}
+		});
+
+		return persosContextMenu;
+	}
 
 	_dragElement(elmnt) {
 		var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;

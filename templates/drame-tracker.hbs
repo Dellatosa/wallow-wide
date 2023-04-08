@@ -8,10 +8,13 @@
             <div class="titre">Réserve de points de Drame</div>
             <div class="valeur" id="tracker-val" data-valeur="{{reservePointsDrame}}"><label>{{reservePointsDrame}}</label></div>
             <a class="tracker-reinit" title="Réinitialiser la réserve"><i class="fa-solid fa-recycle"></i></a>
-            <div class="lst-persos" title="Click droit : Récupérer un point d'un personnage"><i class="fa-solid fa-hat-cowboy"></i> Personnages</i></div>
+            <div class="grid-persos">
+                <div>Personnages</div>
+                <a class="lst-persos-in" title="Click droit : Récupérer un point d'un personnage"><i class="fas fa-sign-in-alt"></i></a>
+                <a class="lst-persos-out" title="Click droit : Donner un point à un personnage"><i class="fas fa-sign-out-alt"></i></a>
+            </div>
         </div>
         
-        {{!-- Complication/Churn Tracker --}}
         {{#if isGM}}
         {{/if}}
     </div>

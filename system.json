@@ -1,25 +1,25 @@
 {
-  "name": "wallow-wide",
   "title": "Wallow Wide",
   "description": "Wallow Wide le JDR",
   "version": "0.1.0",
-  "templateVersion": 1,
-  "author": "Dellatosa",
-  "esmodules": [ "module/wallow-wide.js" ],
-  "styles": [ "css/wallow-wide.css" ],
-  "scripts": [],
-  "packs": [],
+  "esmodules": [
+    "module/wallow-wide.js"
+  ],
+  "styles": [
+    "css/wallow-wide.css"
+  ],
   "languages": [
     {
       "lang": "fr",
       "name": "Francais",
-      "path": "lang/fr.json"
+      "path": "lang/fr.json",
+      "flags": {}
     }
   ],
   "compatibility": {
     "minimum": "10.278",
-    "verified": "10.284",
-    "maximum": 10
+    "verified": "10.291",
+    "maximum": "10"
   },
   "gridDistance": 1.5,
   "gridUnits": "m",
@@ -27,5 +27,12 @@
   "primaryTokenAttribute": "sante",
   "url": "https://github.com/Dellatosa/wallow-wide",
   "manifest": "https://raw.githubusercontent.com/Dellatosa/wallow-wide/master/system.json",
-  "download": "https://github.com/Dellatosa/wallow-wide/archive/refs/tags/v0.1.0.zip"
+  "download": "https://github.com/Dellatosa/wallow-wide/archive/refs/tags/v0.1.0.zip",
+  "id": "wallow-wide",
+  "authors": [
+    {
+      "name": "Dellatosa",
+      "flags": {}
+    }
+  ]
 }
