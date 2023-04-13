@@ -90,15 +90,15 @@
                 {{#if (eq @index 0)}}
                     <div class="entete-metier titre3 all">METIERS</div>
                     <div class="dice top"><a class="roll-metier" title="Jet avec '{{metier.name}}'" data-item-id="{{metier._id}}"><i class="fas fa-dice"></i></a></div>
-                    <div class="metier-item item-options top cursive" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
-                    <div class="entete-niv titre3 all">NIVEAUX</div>
-                    <div class="niveau right top cursive">{{configVal 'niveaux' metier.system.niveau}}</div>
+                    <div class="metier-item item-options top right cursive" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
+                    <!--<div class="entete-niv titre3 all">NIVEAUX</div>
+                    <div class="niveau right top cursive">{{configVal 'niveaux' metier.system.niveau}}</div>-->
                 {{else}}
                     <div class="metier-vide left right"> </div>
                     <div class="dice"><a class="roll-metier" title="Jet avec '{{metier.name}}'" data-item-id="{{metier._id}}"><i class="fas fa-dice"></i></a></div>
-                    <div class="metier-item item-options cursive" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
-                    <div class="niveau-vide left right"> </div>
-                    <div class="niveau right cursive">{{configVal 'niveaux' metier.system.niveau}}</div>
+                    <div class="metier-item item-options right cursive" data-item-id="{{metier._id}}">{{metier.name}}{{#if metier.system.specialisation}} (spé: {{metier.system.specialisation}}){{/if}}</div>
+                    <!--<div class="niveau-vide left right"> </div>
+                    <div class="niveau right cursive">{{configVal 'niveaux' metier.system.niveau}}</div>-->
                 {{/if}}
             {{/each}}
             
@@ -108,23 +108,23 @@
                 {{#if (eq @index 0)}}
                     <div class="entete-hobby titre3 all">HOBBIES</div>
                     <div class="dice top"><a class="roll-hobby" title="Jet avec '{{hobby.name}}'" data-item-id="{{hobby._id}}"><i class="fas fa-dice"></i></a></div>
-                    <div class="hobby-item item-options top cursive" data-item-id="{{hobby._id}}">{{hobby.name}}</div>
-                    <div class="entete-niv titre3 all">NIVEAUX</div>
-                    <div class="niveau right top cursive">{{configVal 'niveaux' hobby.system.niveau}}</div>
+                    <div class="hobby-item item-options top right cursive" data-item-id="{{hobby._id}}">{{hobby.name}}</div>
+                    <!--<div class="entete-niv titre3 all">NIVEAUX</div>
+                    <div class="niveau right top cursive">{{configVal 'niveaux' hobby.system.niveau}}</div>-->
                 {{else}}
                     <div class="hobby-vide left right"> </div>
                     <div class="dice"><a class="roll-hobby" title="Jet avec '{{hobby.name}}'" data-item-id="{{hobby._id}}"><i class="fas fa-dice"></i></a></div>
-                    <div class="hobby-item item-options cursive" data-item-id="{{hobby._id}}">{{hobby.name}}</div>
-                    <div class="niveau-vide left right"> </div>
-                    <div class="niveau right cursive">{{configVal 'niveaux' hobby.system.niveau}}</div>
+                    <div class="hobby-item item-options right cursive" data-item-id="{{hobby._id}}">{{hobby.name}}</div>
+                    <!--<div class="niveau-vide left right"> </div>
+                    <div class="niveau right cursive">{{configVal 'niveaux' hobby.system.niveau}}</div>-->
                 {{/if}}
             {{/each}}
             {{#if hobbies}}
                 <div class="vide left right"> </div>
                 <div class="vide bottom"> </div>
-                <div class="vide bottom"> </div>
-                <div class="vide left right"> </div>
-                <div class="vide right bottom"> </div>
+                <div class="vide bottom right"> </div>
+                <!--<div class="vide left right"> </div>
+                <div class="vide right bottom"> </div>-->
             {{/if}}
         </div>
         <div class="espacement left right"> </div>

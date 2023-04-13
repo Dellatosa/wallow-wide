@@ -4,6 +4,7 @@ export async function jetCaracteristique ({actor = null,
     metier = null,
     hobby = null,
     difficulte = null,
+    depDramePossible = null,
     afficherDialog = true,
     envoiMessage = true} = {}) {
 
@@ -134,25 +135,27 @@ export async function jetCaracteristique ({actor = null,
 
     rollData.dices = dices;
 
-    if(trait) {
+    if(trait || hobby) {
         rollData.resultat = dices.dice2.total;
         actor.utiliserPointDrame();
     }
     else if(metier) {
-        if(metier.system.niveau == "maitre") {
+        /*if(metier.system.niveau == "maitre") {
             rollData.resultat = dices.dice2.total;    
         }
-        else if(metier.system.niveau == "expert") {
+        else if(metier.system.niveau == "expert") {*/
             rollData.resultat = dices.dice1.total;            
             // TODO Gérer le bouton de reroll
-            rollData.depenseDrame = true;
-        }
+            
+            //rollData.depenseDrame = true;
+            rollData.depenseDrame = depDramePossible;
+    /*}
         else {
             rollData.resultat = dices.dice2.total;
             actor.utiliserPointDrame();    
-        }
+        }*/
     }
-    else if(hobby) {
+    /*else if(hobby) {
         if(hobby.system.niveau == "maitre") {
             rollData.resultat = dices.dice2.total;    
         }
@@ -165,7 +168,7 @@ export async function jetCaracteristique ({actor = null,
             rollData.resultat = dices.dice2.total;
             actor.utiliserPointDrame();    
         }
-    }
+    }*/
     else {
         rollData.resultat = dices.dice1.total;
     }

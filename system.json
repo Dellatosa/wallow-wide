@@ -1,7 +1,7 @@
 {
   "title": "Wallow Wide",
   "description": "Wallow Wide le JDR",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "esmodules": [
     "module/wallow-wide.js"
   ],
@@ -27,7 +27,7 @@
   "primaryTokenAttribute": "sante",
   "url": "https://github.com/Dellatosa/wallow-wide",
   "manifest": "https://raw.githubusercontent.com/Dellatosa/wallow-wide/master/system.json",
-  "download": "https://github.com/Dellatosa/wallow-wide/archive/refs/tags/v0.1.0.zip",
+  "download": "https://github.com/Dellatosa/wallow-wide/archive/refs/tags/v0.1.1.zip",
   "id": "wallow-wide",
   "authors": [
     {

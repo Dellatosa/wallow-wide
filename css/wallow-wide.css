@@ -217,7 +217,7 @@
 .metiers-grid,
 .hobbies-grid {
   display: grid;
-  grid-template-columns: 2fr 2em 5fr 1.5fr 1.5fr;
+  grid-template-columns: 2fr 2em 5fr;
 }
 .metiers-grid .entete-metier,
 .hobbies-grid .entete-metier,
@@ -323,7 +323,7 @@
   padding-right: 3px;
 }
 .editor {
-  height: 110px;
+  height: 150px;
 }
 .sheet-footer {
   border-top: solid thin #8d762b;

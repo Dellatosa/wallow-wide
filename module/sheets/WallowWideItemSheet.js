@@ -3,7 +3,7 @@ export default class WallowWideItemSheet extends ItemSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             width: 650,
-            height: 370,
+            height: 390,
             classes: ["wallow-wide", "sheet", "item"],
             //tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });

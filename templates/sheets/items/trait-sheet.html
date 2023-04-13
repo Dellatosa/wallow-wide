@@ -4,7 +4,7 @@
         <h1><input name="name" type="text" value="{{item.name}}" placeholder="Nom du trait"/></h1>
     </header>
     <div class="sheet-content trait" data-item-id="{{item.id}}">
-        <div class="grid-item-trait">
+        <!--<div class="grid-item-trait">
             <label>Niveau</label>
             <select name="system.caracteristique">
                 {{#select data.system.caracteristique}}
@@ -13,7 +13,7 @@
                 {{/each}}
                 {{/select}} 
             </select>
-        </div>
+        </div>-->
         <div class="titre-desc">Description du trait</div> 
         {{editor data.system.description target="system.description" button=true owner=true editable=true}}
     </div>
