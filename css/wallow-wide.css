@@ -361,6 +361,10 @@
   justify-content: center;
   margin: 3px;
 }
+.dice-back .relance {
+  color: #18520b;
+  filter: sepia(0.5) hue-rotate(60deg);
+}
 .d8 {
   background: url("../images/dices/d8-grey.svg") no-repeat;
   color: black;

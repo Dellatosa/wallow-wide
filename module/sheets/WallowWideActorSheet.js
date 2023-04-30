@@ -33,7 +33,6 @@ export default class WallowWideActorSheet extends ActorSheet {
         data.metiers = data.items.filter(function (item) { return item.type == "metier"});
         data.hobbies = data.items.filter(function (item) { return item.type == "hobby"});
         
-
         return data;
     }
 

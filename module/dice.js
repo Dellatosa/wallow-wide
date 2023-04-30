@@ -140,35 +140,10 @@ export async function jetCaracteristique ({actor = null,
         actor.utiliserPointDrame();
     }
     else if(metier) {
-        /*if(metier.system.niveau == "maitre") {
-            rollData.resultat = dices.dice2.total;    
-        }
-        else if(metier.system.niveau == "expert") {*/
-            rollData.resultat = dices.dice1.total;            
-            // TODO Gérer le bouton de reroll
-            
-            //rollData.depenseDrame = true;
-            rollData.depenseDrame = depDramePossible;
-    /*}
-        else {
-            rollData.resultat = dices.dice2.total;
-            actor.utiliserPointDrame();    
-        }*/
+        rollData.resultat = dices.dice1.total;            
+        // Bouton de reroll
+        rollData.depenseDrame = depDramePossible;
     }
-    /*else if(hobby) {
-        if(hobby.system.niveau == "maitre") {
-            rollData.resultat = dices.dice2.total;    
-        }
-        else if(hobby.system.niveau == "expert") {
-            rollData.resultat = dices.dice1.total;            
-            // TODO Gérer le bouton de reroll
-            rollData.depenseDrame = true;
-        }
-        else {
-            rollData.resultat = dices.dice2.total;
-            actor.utiliserPointDrame();    
-        }
-    }*/
     else {
         rollData.resultat = dices.dice1.total;
     }
@@ -248,18 +223,47 @@ function _processJetMetierOptions(form) {
 export async function jetRelanceSpecialisation ({actor = null,
     specialisation = null,
     rollFormula = null,
-    resultat = null} = {}) {
+    diceResults = null,
+    depDrame = null} = {}) {
 
     let rollData = {
         nomPersonnage : actor.name,
         specialisation : specialisation
     }
 
-    let rollResult = await new Roll(rollFormula, rollData).roll({async: true});
+    const sortDesc = (a, b) => a[1] - b[1];
 
-    rollData.faces = rollResult.dice[0].faces;
-    rollData.total = rollResult.dice[0].total;
-    rollData.resultat = Math.max(resultat, rollResult.dice[0].total);
+    let rollResult = await new Roll(rollFormula, rollData).roll({async: true});
+    diceResults.push([rollResult.dice[0].faces, rollResult.dice[0].total, true]);
+    diceResults.sort(sortDesc);
+
+    let dice0 = {
+        faces: diceResults[0][0],
+        total: diceResults[0][1],
+        relance: diceResults[0][2]
+    };
+
+    let dice1 = {
+        faces: diceResults[1][0],
+        total: diceResults[1][1],
+        relance: diceResults[1][2]
+    };
+
+    let dice2 = {
+        faces: diceResults[2][0],
+        total: diceResults[2][1],
+        relance: diceResults[2][2]
+    };
+
+    let dices = {
+        dice0 : dice0,
+        dice1 : dice1,
+        dice2 : dice2
+    }
+
+    rollData.dices = dices;
+    rollData.resultat = dices.dice1.total;
+    rollData.depDrame = depDrame;
 
     let messageTemplate;
     // Recupération du template

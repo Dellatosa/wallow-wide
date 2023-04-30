@@ -2,7 +2,7 @@
     <div class="titre-jet-reroll">
         <div>Relance '{{stats.specialisation}}'</div>
     </div>
-    <div class="grid-jet-reroll">
+    <!-- <div class="grid-jet-reroll">
         <div class="dice-back">
             {{#if (eq stats.faces 8)}}
                 <div class="roll die d8">{{stats.total}}</div>
@@ -14,6 +14,80 @@
                 <div class="roll die d12">{{stats.total}}</div>
             {{/if}}            
         </div>
+    </div> -->
+    <div class="grid-jet-carac">
+        <div class="dice-back">
+            {{#if (eq stats.dices.dice0.faces 8)}}
+                {{#if stats.dices.dice0.relance}}
+                    <div class="roll die d8 relance">{{stats.dices.dice0.total}}</div>
+                {{else}}
+                    <div class="roll die d8">{{stats.dices.dice0.total}}</div>
+                {{/if}}
+            {{/if}}
+            {{#if (eq stats.dices.dice0.faces 10)}}
+                {{#if stats.dices.dice0.relance}}
+                    <div class="roll die d10 relance">{{stats.dices.dice0.total}}</div>
+                {{else}}
+                    <div class="roll die d10">{{stats.dices.dice0.total}}</div>
+                {{/if}}
+            {{/if}}
+            {{#if (eq stats.dices.dice0.faces 12)}}
+                {{#if stats.dices.dice0.relance}}
+                    <div class="roll die d12 relance">{{stats.dices.dice0.total}}</div>
+                {{else}}
+                    <div class="roll die d12">{{stats.dices.dice0.total}}</div>
+                {{/if}}
+            {{/if}}            
+        </div>
+        <div class="dice-back">
+            {{#if (eq stats.dices.dice1.faces 8)}}
+                {{#if stats.dices.dice1.relance}}
+                    <div class="roll die d8 relance">{{stats.dices.dice1.total}}</div>
+                {{else}}
+                    <div class="roll die d8">{{stats.dices.dice1.total}}</div>
+                {{/if}}
+            {{/if}}
+            {{#if (eq stats.dices.dice1.faces 10)}}
+                {{#if stats.dices.dice1.relance}}
+                    <div class="roll die d10 relance">{{stats.dices.dice1.total}}</div>
+                {{else}}
+                    <div class="roll die d10">{{stats.dices.dice1.total}}</div>
+                {{/if}}
+            {{/if}}
+            {{#if (eq stats.dices.dice1.faces 12)}}
+                {{#if stats.dices.dice1.relance}}
+                    <div class="roll die d12 relance">{{stats.dices.dice1.total}}</div>
+                {{else}}
+                    <div class="roll die d12">{{stats.dices.dice1.total}}</div>
+                {{/if}}    
+            {{/if}}
+        </div>
+        <div class="dice-back">
+            {{#if (eq stats.dices.dice2.faces 8)}}
+                {{#if stats.dices.dice2.relance}}
+                    <div class="roll die d8 relance">{{stats.dices.dice2.total}}</div>
+                {{else}}
+                    <div class="roll die d8">{{stats.dices.dice2.total}}</div>
+                {{/if}}    
+            {{/if}}
+            {{#if (eq stats.dices.dice2.faces 10)}}
+                {{#if stats.dices.dice2.relance}}
+                    <div class="roll die d10 relance">{{stats.dices.dice2.total}}</div>
+                {{else}}    
+                    <div class="roll die d10">{{stats.dices.dice2.total}}</div>
+                {{/if}}    
+            {{/if}}
+            {{#if (eq stats.dices.dice2.faces 12)}}
+                {{#if stats.dices.dice2.relance}}
+                    <div class="roll die d12 relance">{{stats.dices.dice2.total}}</div>
+                {{else}}    
+                    <div class="roll die d12">{{stats.dices.dice2.total}}</div>
+                {{/if}}
+            {{/if}}
+        </div> 
     </div>
     <div class="resultat"><label>Résultat : {{stats.resultat}}</label></div>
+    {{#if stats.depDrame}}
+        <div class="btn-drame"><button class="drame" data-actor-id="{{actorId}}" data-resultat="{{stats.dices.dice2.total}}">Dépenser un point de Drame</button></div>
+    {{/if}}
 </div>
