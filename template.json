@@ -10,7 +10,8 @@
                 "description": "",
                 "couleurCheveux": "",
                 "couleurYeux": "",
-                "fonction": ""
+                "fonction": "",
+                "dateNaissance": ""
             },
             "caracteritiques": {
                 "physique": {
@@ -55,10 +56,13 @@
             "pointsDrame": 0
         },
         "pnj": {
-            "templates": [ "information", "caracteritiques", "secondaires" ]
+            "templates": [ "information", "caracteritiques", "secondaires" ],
+            "adversite": 0,
+            "profession": ""
         },
         "figurant": {
-            "adversite": 0
+            "adversite": 0,
+            "profession": ""
         }
     },
     "Item": {

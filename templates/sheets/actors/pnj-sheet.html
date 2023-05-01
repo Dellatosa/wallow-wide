@@ -1,0 +1,26 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <div class="entete-pnj">
+            <div><label>Carte d'identité</label></div>
+            <div><label>Etats Unis d'Amérique</label></div>
+        </div>
+    </header>
+    <div class="sheet-fixed-content">
+
+    </div>
+    <section class="sheet-body">
+        <div class="grid-body-pnj">
+            <div class="vide"> </div>
+            <div class="portrait"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /></div>
+            <div class="vide"> </div>
+            <div class="grid-identite-pnj">
+                <div class="disp-flex col"><label>Nom</label><input class="cursive" name="name" type="text" value="{{actor.name}}" placeholder="Nom"/></div>
+                <div class="disp-flex col"><label>Prénoms</label><input class="cursive" name="system.prenom" type="text" value="{{data.system.prenom}}" placeholder="Prénoms"/></div>
+                <div class="disp-flex col"><label>Date de naissance</label><input class="cursive" name="system.DateNaissance" type="text" value="{{data.system.DateNaissance}}" placeholder="Date de naissance"/></div>
+                <div class="disp-flex top left right bottom"><label>Profession</label><input class="cursive" name="system.profession" type="text" value="{{data.system.profession}}" placeholder="Profession"/></div>
+                <div class="disp-flex top right bottom"><label>Adversité</label><input class="cursive val" name="system.adversite" type="text" value="{{data.system.adversite}}" placeholder="0"/></div>
+            </div>
+            <div class="vide"> </div>
+        </div>
+    </section>
+</form>

@@ -1,8 +1,4 @@
 .window-app.wallow-wide .window-content {
-    //background: url("../images/old-document-size-paper2.jpg") repeat;
-    background: url("../images/56-High-Quality-Old-Paper-Texture-Downloads-Completely-Free.jpg");
-    background-size: cover;
-
     //font-family: 'Kalam', cursive;
     //font-family: 'Architects Daughter', cursive;
     //font-family: 'Shadows Into Light', cursive;
@@ -17,6 +13,16 @@
         font-family: cursive;
         color: var(--color-text-cursive);
     }
+}
+
+.window-app.wallow-wide.pj .window-content {
+    background: url("../images/pj-back.jpg");
+    background-size: cover;
+}
+
+.window-app.wallow-wide.pnj .window-content {
+    background: url("../images/pnj-back.png");
+    background-size: cover;
 }
 
 .titre1 {
@@ -365,5 +371,60 @@
         height: 75px;
         padding-left: 3px;
         padding-right: 3px;
+    }
+}
+
+.entete-pnj {
+    padding: 2px 3px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: right;
+}
+
+.grid-body-pnj {
+    display: grid;
+    grid-template-columns: 6fr 30fr 8fr 50fr 6fr;
+    margin-top: 20px;
+
+    .portrait {
+        height: 100%;
+        background-color: var(--color-contenu-card-id);
+        padding: 2px;
+
+        img {
+            border: none;
+        }
+    }
+
+    .grid-identite-pnj {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        margin-top: 15px; 
+        margin-bottom: 15px;
+        background-color: rgba(255, 255, 255, 0.7);
+
+        .disp-flex {
+            align-items: center;
+            display: flex;
+        }
+
+        .col {
+            grid-column: 1 / 3;
+            border-top: solid 2px black;
+            border-left: solid 2px black;
+            border-right: solid 2px black;
+        }
+
+        .val {
+            text-align: center;
+        }
+
+        label {
+            margin: 4px 3px; 
+        } 
+
+        input {
+            margin: 0px 2px;
+        }
     }
 }

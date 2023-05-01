@@ -14,11 +14,20 @@ export default class WallowWideActorSheet extends ActorSheet {
     }
 
     get template() {
-        if(this.actor.type == "pj" || this.actor.type == "pnj") {
+        if(this.actor.type == "pj") {
+            if(!this.options.classes.includes("pj")) { this.options.classes.push("pj"); }
+            mergeObject(this.position, {width: 745, height: 1000});
             console.log(`Wallow Wide | type : ${this.actor.type} | chargement du template systems/wallow-wide/templates/sheets/actors/personnage-sheet-v2.html`);
             return `systems/wallow-wide/templates/sheets/actors/personnage-sheet-v2.html`
         } 
+        else if (this.actor.type == "pnj") {
+            if(!this.options.classes.includes("pnj")) { this.options.classes.push("pnj"); }
+            mergeObject(this.position, {width: 745, height: 500});
+            console.log(`Wallow Wide | type : ${this.actor.type} | chargement du template systems/wallow-wide/templates/sheets/actors/pnj-sheet.html`);
+            return `systems/wallow-wide/templates/sheets/actors/pnj-sheet.html`
+        }
         else {
+            this.options.classes.push("figurant");
             console.log(`Wallow Wide | chargement du template systems/wallow-wide/templates/sheets/actors/${this.actor.type}-sheet.html`);
             return `systems/wallow-wide/templates/sheets/actors/${this.actor.type}-sheet.html`
         }
@@ -32,7 +41,11 @@ export default class WallowWideActorSheet extends ActorSheet {
         data.traits = data.items.filter(function (item) { return item.type == "trait"});
         data.metiers = data.items.filter(function (item) { return item.type == "metier"});
         data.hobbies = data.items.filter(function (item) { return item.type == "hobby"});
-        
+
+        //if(this.actor.type == "pnj" && !this.rendered) {
+        //    mergeObject(this.position, {height: 500});
+        //}
+
         return data;
     }
 
