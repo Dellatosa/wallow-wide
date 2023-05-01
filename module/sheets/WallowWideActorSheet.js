@@ -36,15 +36,23 @@ export default class WallowWideActorSheet extends ActorSheet {
     getData() {
         const data = super.getData();
         data.config = CONFIG.WallowWide;
-        const actorData = data.system;
 
         data.traits = data.items.filter(function (item) { return item.type == "trait"});
         data.metiers = data.items.filter(function (item) { return item.type == "metier"});
         data.hobbies = data.items.filter(function (item) { return item.type == "hobby"});
 
-        //if(this.actor.type == "pnj" && !this.rendered) {
-        //    mergeObject(this.position, {height: 500});
-        //}
+        game.journal.forEach(jEntry => {
+            jEntry.pages.forEach(page => {
+                //console.log(page.name, data.data.name);
+                if(page.name == data.data.name) {
+                    console.log(page);
+                    data.data.journalLink = `JournalEntry.${jEntry._id}.JournalEntryPage.${page._id}`;
+                    data.data.pageId = page._id;
+                }
+            })
+        });
+
+        console.log(data);
 
         return data;
     }
@@ -60,8 +68,6 @@ export default class WallowWideActorSheet extends ActorSheet {
 
         const StressClass = ".stress-" + actorData.stress.value;
         html.find(StressClass).addClass("stress-cur");
-
-        //<i class="fa-solid fa-thumbtack"></i>
 
         if (this.actor.isOwner) {
             new ContextMenu(html, ".item-options", this.traitContextMenu);

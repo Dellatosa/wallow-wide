@@ -64,7 +64,6 @@ export class DrameTracker extends Application {
 		event.preventDefault();		
 
 		let actors = game.actors.filter(function (actor) { return actor.type == "pj"});
-		console.log(actors);
 
 		actors.forEach(actor => {
 			actor.reinitPointDrame();

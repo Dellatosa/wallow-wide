@@ -374,11 +374,18 @@
     }
 }
 
-.entete-pnj {
-    padding: 2px 3px;
+.grid-entete-pnj {
+    display: grid;
+    grid-template-columns: 94fr 6fr;
+
+    padding: 3px;
     font-size: 1.5em;
     font-weight: bold;
     text-align: right;
+
+    .titre {
+        margin: 3px;
+    }
 }
 
 .grid-body-pnj {
@@ -404,8 +411,12 @@
         background-color: rgba(255, 255, 255, 0.7);
 
         .disp-flex {
-            align-items: center;
-            display: flex;
+            //align-items: center;
+            display: grid;
+            grid-template-columns: 1fr;
+            //display: flex;
+            //flex-direction: column;
+            padding: 3px;
         }
 
         .col {
@@ -424,7 +435,8 @@
         } 
 
         input {
-            margin: 0px 2px;
+            padding: 3px;
+            //margin: 3px;
         }
     }
 }
