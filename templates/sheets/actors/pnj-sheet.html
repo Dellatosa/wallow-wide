@@ -8,9 +8,6 @@
         </div>
     </header>
     <div class="sheet-fixed-content">
-        {{#if data.journalLink}}
-        <a class="content-link" data-type="JournalEntryPage" data-id="{{data.pageId}}" data-uuid="{{data.journalLink}}" title="Consultez l'entrée de journal dédiée à ce personnage"><i class="fas fa-info-circle"></i></a>
-        {{/if}}
     </div>
     <section class="sheet-body">
         <div class="grid-body-pnj">
@@ -18,7 +15,14 @@
             <div class="portrait"><img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" /></div>
             <div class="vide"> </div>
             <div class="grid-identite-pnj">
-                <div class="disp-flex col"><label>Nom</label><input class="cursive" name="name" type="text" value="{{actor.name}}" placeholder="Nom"/></div>
+                <div class="disp-flex col">
+                    <span class="ico-right"><label>Nom</label>
+                        {{#if data.journalLink}}
+                            <a class="content-link" data-type="JournalEntryPage" data-id="{{data.pageId}}" data-uuid="{{data.journalLink}}" title="Consultez l'entrée de journal dédiée à ce personnage"><i class="fas fa-book-open"></i></a>
+                        {{/if}}
+                    </span>
+                    <input class="cursive" name="name" type="text" value="{{actor.name}}" placeholder="Nom"/>
+                </div>
                 <div class="disp-flex col"><label>Prénoms</label><input class="cursive" name="system.prenom" type="text" value="{{data.system.prenom}}" placeholder="Prénoms"/></div>
                 <div class="disp-flex col"><label>Date de naissance</label><input class="cursive" name="system.DateNaissance" type="text" value="{{data.system.DateNaissance}}" placeholder="Date de naissance"/></div>
                 <div class="disp-flex top left right bottom"><label>Profession</label><input class="cursive" name="system.profession" type="text" value="{{data.system.profession}}" placeholder="Profession"/></div>

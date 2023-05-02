@@ -379,6 +379,18 @@
 .grid-body-pnj .grid-identite-pnj input {
   padding: 3px;
 }
+a.content-link {
+  border: none;
+  background: none;
+  margin: 4px 3px;
+}
+a.content-link i {
+  color: #2c2c2c;
+}
+.ico-right {
+  display: flex;
+  justify-content: space-between;
+}
 .editor {
   height: 150px;
 }
@@ -477,18 +489,6 @@
   font-size: 1.2em;
   font-weight: bold;
   margin-left: 3px;
-  /*a.content-link {
-            border: none;
-            background: none;
-            
-            i {
-                color: var(--color-titre-trinite);
-            }
-        }
-
-        a.content-link:hover {
-            text-shadow: 0 0 8px var(--color-shadow-trinite);
-        }*/
 }
 .dialog-content .grid-data {
   display: grid;
