@@ -9,7 +9,7 @@ Mâtiné d’une ambiance western, ce jeu vous plonge en plein cœur des Grandes
 
 ## Caractéristiques
 - Fiches de personnage *joueur* et *non joueur*
-- *Traits*, *métiers* et *hobbies* gérés sous forme d'items
+- *Traits*, *métiers* et *hobbies* gérés sous forme *d'Objets*
 - Gestion de la dépense de *Points de Drame* lors des tests de *Traits* et *Hobbies*
 - Gestion de la relance de *Spécialisation* lors des tests de *Métiers*
 - Fonction de raccourci vers une page de journal sur la fiche PNJ
