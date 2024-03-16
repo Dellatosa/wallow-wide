@@ -19,15 +19,15 @@
   "media": [
     {
       "type": "cover",
-      "url": "systems/wallow-wide/images/wallow_wide_back.png",
+      "url": "systems/wallow-wide/images/wallow_wide_back.jpg",
       "caption": "Wallow Wide le JDR",
       "loop": false,
       "flags": {}
     },
     {
       "type": "setup",
-      "url": "systems/wallow-wide/images/wallow_wide_back.png",
-      "thumbnail": "systems/wallow-wide/images/wallow_wide_back.png",
+      "url": "systems/wallow-wide/images/wallow_wide_back.jpg",
+      "thumbnail": "systems/wallow-wide/images/wallow_wide_back.jpg",
       "loop": false,
       "flags": {}
     }

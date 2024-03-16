@@ -1,6 +1,6 @@
 {
     "Actor": {
-        "types": ["pj", "pnj", "figurant"],
+        "types": ["pj", "pnj"],
         "templates": {
             "information": {
                 "prenom": "",
@@ -57,10 +57,6 @@
         },
         "pnj": {
             "templates": [ "information", "caracteritiques", "secondaires" ],
-            "adversite": 0,
-            "profession": ""
-        },
-        "figurant": {
             "adversite": 0,
             "profession": ""
         }

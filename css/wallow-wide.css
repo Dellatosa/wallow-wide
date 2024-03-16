@@ -12,9 +12,53 @@
   background: url("../images/pj-back.jpg");
   background-size: cover;
 }
+.window-app.wallow-wide.pj .window-content input[type="text"].cursive,
+.window-app.wallow-wide.pj .window-content input[type="number"].cursive,
+.window-app.wallow-wide.pj .window-content .cursive,
+.window-app.wallow-wide.pj .window-content .editor {
+  font-family: cursive;
+  color: var(--color-text-cursive);
+}
+.window-app.wallow-wide.pj .window-content .top {
+  border-top: solid 2px var(--color-cadre-fiche);
+}
+.window-app.wallow-wide.pj .window-content .left {
+  border-left: solid 2px var(--color-cadre-fiche);
+}
+.window-app.wallow-wide.pj .window-content .right {
+  border-right: solid 2px var(--color-cadre-fiche);
+}
+.window-app.wallow-wide.pj .window-content .bottom {
+  border-bottom: solid 2px var(--color-cadre-fiche);
+}
+.window-app.wallow-wide.pj .window-content .all {
+  border: solid 2px var(--color-cadre-fiche);
+}
 .window-app.wallow-wide.pnj .window-content {
   background: url("../images/pnj-back.png");
   background-size: cover;
+}
+.window-app.wallow-wide.pnj .window-content input[type="text"].cursive,
+.window-app.wallow-wide.pnj .window-content input[type="number"].cursive,
+.window-app.wallow-wide.pnj .window-content .cursive,
+.window-app.wallow-wide.pnj .window-content .editor {
+  font-family: cursive;
+  color: var(--color-text-cursive-pnj);
+}
+.window-app.wallow-wide.pnj .window-content .top {
+  border-top: solid 2px black;
+}
+.window-app.wallow-wide.pnj .window-content .left {
+  border-left: solid 2px black;
+}
+.window-app.wallow-wide.pnj .window-content .right {
+  border-right: solid 2px black;
+}
+.window-app.wallow-wide.pnj .window-content .bottom {
+  border-bottom: solid 2px black;
+}
+.window-app.wallow-wide.pnj .window-content .all {
+  border: solid 2px black;
 }
 .titre1 {
   padding: 2px 3px;
@@ -47,11 +91,12 @@
 }
 .entete-grid .titre {
   text-align: center;
-  border: solid 2px;
+  border: solid 2px var(--color-cadre-fiche);
   margin-left: 2px;
+  color: var(--color-cadre-fiche);
 }
 .entete-grid .titre .titre2 {
-  border-bottom: solid 2px;
+  border-bottom: solid 2px var(--color-cadre-fiche);
 }
 .entete-grid .titre .normal {
   padding: 2px 3px;
@@ -63,6 +108,7 @@
   border-top: solid 2px;
   border-bottom: solid 2px;
   border-right: solid 2px;
+  border-color: var(--color-cadre-fiche);
 }
 .identite-grid {
   display: grid;
@@ -129,6 +175,8 @@
   padding: 3px;
   border-width: 2px 2px 1px 2px;
   border-style: solid;
+  border-color: var(--color-cadre-fiche);
+  color: var(--color-cadre-fiche);
 }
 .points-drame-grid .age label,
 .points-drame-grid .age div {
@@ -137,6 +185,7 @@
 .points-drame-grid .point-drame {
   border-style: solid;
   border-width: 1px 2px 1px 0;
+  border-color: var(--color-cadre-fiche);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,6 +197,7 @@
 .points-drame-grid .point-drame.bottom {
   border-style: solid;
   border-width: 1px 2px 0 0;
+  border-color: var(--color-cadre-fiche);
 }
 .caracs-traits-grid {
   display: grid;
@@ -155,17 +205,18 @@
 }
 .caracs-traits-grid .entete-car {
   grid-column: 1 / 4;
-  border: solid 1px black;
-  border-top: solid 2px black;
-  border-left: solid 2px black;
-  background-color: black;
+  border: solid 1px var(--color-cadre-fiche);
+  border-top: solid 2px var(--color-cadre-fiche);
+  border-left: solid 2px var(--color-cadre-fiche);
+  background-color: var(--color-cadre-fiche);
   color: white;
 }
 .caracs-traits-grid .entete-trait {
   grid-column: 4 / 5;
-  border: solid 1px black;
-  border-top: solid 2px black;
-  border-right: solid 2px black;
+  border: solid 1px var(--color-cadre-fiche);
+  border-top: solid 2px var(--color-cadre-fiche);
+  border-right: solid 2px var(--color-cadre-fiche);
+  color: var(--color-cadre-fiche);
 }
 .caracs-traits-grid .carac,
 .caracs-traits-grid .carac-val,
@@ -174,48 +225,34 @@
   display: flex;
   align-items: center;
   padding: 3px;
+  color: var(--color-cadre-fiche);
 }
 .caracs-traits-grid .carac {
-  border: solid 1px black;
-  border-left: solid 2px black;
-  background-color: black;
+  border: solid 1px var(--color-cadre-fiche);
+  border-left: solid 2px var(--color-cadre-fiche);
+  background-color: var(--color-cadre-fiche);
   color: white;
 }
 .caracs-traits-grid .traits {
-  border: solid 1px black;
-  border-right: solid 2px black;
+  border: solid 1px var(--color-cadre-fiche);
+  border-right: solid 2px var(--color-cadre-fiche);
 }
 .caracs-traits-grid .carac-val {
   text-align: center;
-  border-top: solid 1px black;
-  border-bottom: solid 1px black;
-  border-left: solid 1px black;
+  border-top: solid 1px var(--color-cadre-fiche);
+  border-bottom: solid 1px var(--color-cadre-fiche);
+  border-left: solid 1px var(--color-cadre-fiche);
 }
 .caracs-traits-grid .dice {
-  border-top: solid 1px black;
-  border-bottom: solid 1px black;
-  border-right: solid 1px black;
+  border-top: solid 1px var(--color-cadre-fiche);
+  border-bottom: solid 1px var(--color-cadre-fiche);
+  border-right: solid 1px var(--color-cadre-fiche);
 }
 .caracs-traits-grid .bottom {
-  border-bottom: solid 2px black;
+  border-bottom: solid 2px var(--color-cadre-fiche);
 }
 .caracs-traits-grid .normal {
   padding: 3px;
-}
-.top {
-  border-top: solid 2px black;
-}
-.left {
-  border-left: solid 2px black;
-}
-.right {
-  border-right: solid 2px black;
-}
-.bottom {
-  border-bottom: solid 2px black;
-}
-.all {
-  border: solid 2px black;
 }
 .espacement {
   height: 5px;
@@ -231,7 +268,7 @@
 .hobbies-grid .entete-hobby,
 .metiers-grid .entete-niv,
 .hobbies-grid .entete-niv {
-  background-color: black;
+  background-color: var(--color-cadre-fiche);
   color: white;
 }
 .metiers-grid .dice,
@@ -254,6 +291,7 @@
 .hobbies-grid .vide {
   padding-top: 5px;
   align-items: center;
+  color: var(--color-cadre-fiche);
 }
 .metiers-grid .metier-item.top,
 .hobbies-grid .metier-item.top,
@@ -275,6 +313,7 @@
   grid-template-columns: 3fr 1fr;
   padding: 3px;
   align-items: center;
+  color: var(--color-cadre-fiche);
 }
 .carac-sec-grid .carac-sec input {
   text-align: center;
@@ -286,6 +325,7 @@
   grid-template-columns: 2fr 1fr 1em 1fr;
   padding: 3px;
   align-items: center;
+  color: var(--color-cadre-fiche);
 }
 .carac-sec-grid .carac-sec-max input {
   text-align: center;
@@ -301,11 +341,15 @@
   grid-template-columns: 1fr 2fr;
   padding: 3px;
   align-items: center;
+  color: var(--color-cadre-fiche);
 }
 .carac-sec-grid .carac-sec-etat .data {
   display: grid;
   grid-template-columns: 1fr 2em;
   align-items: center;
+}
+.fait-marquant {
+  color: var(--color-cadre-fiche);
 }
 .fait-marquant label {
   padding: 3px;
@@ -318,7 +362,8 @@
 .tare-inspi-grid {
   display: grid;
   grid-template-columns: 1.5fr 8.5fr;
-  border: solid 2px;
+  border: solid 2px var(--color-cadre-fiche);
+  color: var(--color-cadre-fiche);
 }
 .tare-inspi-grid label {
   padding: 3px;
@@ -390,6 +435,10 @@ a.content-link i {
 .ico-right {
   display: flex;
   justify-content: space-between;
+}
+.window-app.wallow-wide.item .window-content {
+  background: url("../images/pj-back.jpg");
+  background-size: cover;
 }
 .editor {
   height: 150px;
@@ -509,7 +558,9 @@ a.content-link i {
   --color-entete-card-id: #003273;
   --color-contenu-card-id: #c0c6d2;
   --color-titre-rub-card-id: #476183;
-  --color-text-cursive: #3567a8;
+  --color-text-cursive-pnj: #3567a8;
+  --color-text-cursive: black;
+  --color-cadre-fiche: #c08a68;
 }
 /*******************************/
 /**       Drame Tracker        **/
@@ -527,10 +578,10 @@ a.content-link i {
   flex-direction: column;
 }
 .wallow-opacity-hover {
-  opacity: 0.6;
+  opacity: 0.9;
 }
 .wallow-opacity-hover:hover {
-  opacity: 0.9;
+  opacity: 1;
 }
 #drame-tracker {
   position: absolute;
@@ -544,7 +595,7 @@ a.content-link i {
 #drame-tracker .grid-tracker {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  color: white;
+  color: #5c5c5c;
   text-align: center;
   align-items: center;
 }
@@ -556,6 +607,7 @@ a.content-link i {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
   font-size: 3em;
   height: 80px;
   background-image: url("../images/token-point-drame.png");

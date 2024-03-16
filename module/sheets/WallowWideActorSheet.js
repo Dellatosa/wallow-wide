@@ -4,7 +4,7 @@ export default class WallowWideActorSheet extends ActorSheet {
      
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            width: 745,
+            width: 750,
             height: 1000,
             classes: ["wallow-wide", "sheet", "actor"],
             /*tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "competences" },
@@ -16,7 +16,7 @@ export default class WallowWideActorSheet extends ActorSheet {
     get template() {
         if(this.actor.type == "pj") {
             if(!this.options.classes.includes("pj")) { this.options.classes.push("pj"); }
-            mergeObject(this.position, {width: 745, height: 1000});
+            mergeObject(this.position, {width: 770, height: 1000});
             console.log(`Wallow Wide | type : ${this.actor.type} | chargement du template systems/wallow-wide/templates/sheets/actors/personnage-sheet-v2.html`);
             return `systems/wallow-wide/templates/sheets/actors/personnage-sheet-v2.html`
         } 
@@ -26,11 +26,11 @@ export default class WallowWideActorSheet extends ActorSheet {
             console.log(`Wallow Wide | type : ${this.actor.type} | chargement du template systems/wallow-wide/templates/sheets/actors/pnj-sheet.html`);
             return `systems/wallow-wide/templates/sheets/actors/pnj-sheet.html`
         }
-        else {
+        /*else {
             this.options.classes.push("figurant");
             console.log(`Wallow Wide | chargement du template systems/wallow-wide/templates/sheets/actors/${this.actor.type}-sheet.html`);
             return `systems/wallow-wide/templates/sheets/actors/${this.actor.type}-sheet.html`
-        }
+        }*/
     }
 
     getData() {
@@ -51,8 +51,6 @@ export default class WallowWideActorSheet extends ActorSheet {
                 }
             })
         });
-
-        //console.log(data);
 
         return data;
     }

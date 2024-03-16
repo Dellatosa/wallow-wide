@@ -1,14 +1,6 @@
 .window-app.wallow-wide .window-content {
-    //font-family: 'Kalam', cursive;
-    //font-family: 'Architects Daughter', cursive;
-    //font-family: 'Shadows Into Light', cursive;
-    //font-family: 'Shadows Into Light Two', cursive;
-    //font-family: 'Handlee', cursive;
-    //font-family: 'Indie Flower', cursive;
-
-    //font-family: 'Courier Prime', monospace;
     font-family: 'Roboto', sans-serif;
-
+    
     input[type="text"].cursive, input[type="number"].cursive, .cursive, .editor {
         font-family: cursive;
         color: var(--color-text-cursive);
@@ -18,11 +10,61 @@
 .window-app.wallow-wide.pj .window-content {
     background: url("../images/pj-back.jpg");
     background-size: cover;
+
+    input[type="text"].cursive, input[type="number"].cursive, .cursive, .editor {
+        font-family: cursive;
+        color: var(--color-text-cursive);
+    }
+
+    .top {
+        border-top: solid 2px var(--color-cadre-fiche);
+    }
+    
+    .left {
+        border-left: solid 2px var(--color-cadre-fiche);
+    }
+    
+    .right {
+        border-right: solid 2px var(--color-cadre-fiche);
+    }
+    
+    .bottom {
+        border-bottom: solid 2px var(--color-cadre-fiche);
+    }
+    
+    .all {
+        border: solid 2px var(--color-cadre-fiche);
+    }
 }
 
 .window-app.wallow-wide.pnj .window-content {
     background: url("../images/pnj-back.png");
     background-size: cover;
+
+    input[type="text"].cursive, input[type="number"].cursive, .cursive, .editor {
+        font-family: cursive;
+        color: var(--color-text-cursive-pnj);
+    }
+
+    .top {
+        border-top: solid 2px black;
+    }
+    
+    .left {
+        border-left: solid 2px black;
+    }
+    
+    .right {
+        border-right: solid 2px black;
+    }
+    
+    .bottom {
+        border-bottom: solid 2px black;
+    }
+    
+    .all {
+        border: solid 2px black;
+    }
 }
 
 .titre1 {
@@ -61,11 +103,12 @@
 
     .titre {
         text-align: center;
-        border: solid 2px;
+        border: solid 2px var(--color-cadre-fiche);
         margin-left: 2px;
+        color: var(--color-cadre-fiche);
 
         .titre2 {
-            border-bottom: solid 2px;
+            border-bottom: solid 2px var(--color-cadre-fiche);
         }
 
         .normal {
@@ -81,6 +124,7 @@
         border-top: solid 2px;
         border-bottom: solid 2px;
         border-right: solid 2px;
+        border-color: var(--color-cadre-fiche);
     }
 }
 
@@ -159,6 +203,8 @@
 
         border-width: 2px 2px 1px 2px;
         border-style: solid;
+        border-color: var(--color-cadre-fiche);
+        color: var(--color-cadre-fiche);
 
         label, div {
             margin: 3px;
@@ -168,6 +214,7 @@
     .point-drame {
         border-style: solid;
         border-width: 1px 2px 1px 0;
+        border-color: var(--color-cadre-fiche);
         
         display: flex;
         align-items: center;
@@ -182,6 +229,7 @@
     .point-drame.bottom {
         border-style: solid;
         border-width: 1px 2px 0 0;
+        border-color: var(--color-cadre-fiche);
     }
 }
 
@@ -191,78 +239,60 @@
 
     .entete-car {
         grid-column: 1 / 4;
-        border: solid 1px black;
-        border-top: solid 2px black;
-        border-left: solid 2px black;
-        background-color: black;
+        border: solid 1px var(--color-cadre-fiche);
+        border-top: solid 2px var(--color-cadre-fiche);
+        border-left: solid 2px var(--color-cadre-fiche);
+        background-color: var(--color-cadre-fiche);
         color: white;
     }
 
     .entete-trait {
         grid-column: 4 / 5;
-        border: solid 1px black;
-        border-top: solid 2px black;
-        border-right: solid 2px black;
+        border: solid 1px var(--color-cadre-fiche);
+        border-top: solid 2px var(--color-cadre-fiche);
+        border-right: solid 2px var(--color-cadre-fiche);
+        color: var(--color-cadre-fiche);
     }
 
     .carac, .carac-val, .traits, .dice {
         display: flex;
         align-items: center;
         padding: 3px;
+        color: var(--color-cadre-fiche);
     }
 
     .carac {
-        border: solid 1px black;
-        border-left: solid 2px black;
-        background-color: black;
+        border: solid 1px var(--color-cadre-fiche);
+        border-left: solid 2px var(--color-cadre-fiche);
+        background-color: var(--color-cadre-fiche);
         color: white;
     }
 
     .traits {
-        border: solid 1px black;
-        border-right: solid 2px black;
+        border: solid 1px var(--color-cadre-fiche);
+        border-right: solid 2px var(--color-cadre-fiche);
     }
 
     .carac-val {
         text-align: center;
-        border-top: solid 1px black;
-        border-bottom: solid 1px black;
-        border-left: solid 1px black;
+        border-top: solid 1px var(--color-cadre-fiche);
+        border-bottom: solid 1px var(--color-cadre-fiche);
+        border-left: solid 1px var(--color-cadre-fiche);
     }
 
     .dice {
-        border-top: solid 1px black;
-        border-bottom: solid 1px black;
-        border-right: solid 1px black;
+        border-top: solid 1px var(--color-cadre-fiche);
+        border-bottom: solid 1px var(--color-cadre-fiche);
+        border-right: solid 1px var(--color-cadre-fiche);
     }
    
     .bottom {
-        border-bottom: solid 2px black;
+        border-bottom: solid 2px var(--color-cadre-fiche);
     }
 
     .normal {
         padding: 3px;
     }
-}
-
-.top {
-    border-top: solid 2px black;
-}
-
-.left {
-    border-left: solid 2px black;
-}
-
-.right {
-    border-right: solid 2px black;
-}
-
-.bottom {
-    border-bottom: solid 2px black;
-}
-
-.all {
-    border: solid 2px black;
 }
 
 .espacement {
@@ -274,7 +304,7 @@
     grid-template-columns: 2fr 2em 5fr;
     
     .entete-metier, .entete-hobby, .entete-niv {
-        background-color: black;
+        background-color: var(--color-cadre-fiche);
         color: white;
     }
 
@@ -289,6 +319,7 @@
     .metier-item, .hobby-item, .dice, .niveau, .vide {
         padding-top: 5px;
         align-items: center;
+        color: var(--color-cadre-fiche);
     }
 
     .metier-item.top, .hobby-item.top, .dice.top, .niveau.top {
@@ -306,6 +337,7 @@
         grid-template-columns: 3fr 1fr;
         padding: 3px;
         align-items: center;
+        color: var(--color-cadre-fiche);
 
         input {
             text-align: center;
@@ -319,6 +351,7 @@
         grid-template-columns: 2fr 1fr 1em 1fr;
         padding: 3px;
         align-items: center;
+        color: var(--color-cadre-fiche);
 
         input {
             text-align: center;
@@ -336,6 +369,7 @@
         grid-template-columns: 1fr 2fr;
         padding: 3px;
         align-items: center;
+        color: var(--color-cadre-fiche);
 
         .data {
             display: grid;
@@ -346,6 +380,8 @@
 }
 
 .fait-marquant {
+
+    color: var(--color-cadre-fiche);
 
     label {
         padding: 3px;
@@ -361,7 +397,8 @@
 .tare-inspi-grid {
     display: grid;
     grid-template-columns: 1.5fr 8.5fr;
-    border: solid 2px;
+    border: solid 2px var(--color-cadre-fiche);;
+    color: var(--color-cadre-fiche);
 
     label {
         padding: 3px;                
@@ -411,11 +448,8 @@
         background-color: rgba(255, 255, 255, 0.7);
 
         .disp-flex {
-            //align-items: center;
             display: grid;
             grid-template-columns: 1fr;
-            //display: flex;
-            //flex-direction: column;
             padding: 3px;
         }
 
@@ -436,7 +470,6 @@
 
         input {
             padding: 3px;
-            //margin: 3px;
         }
     }
 }
