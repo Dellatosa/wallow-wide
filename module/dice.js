@@ -35,7 +35,18 @@ export async function jetCaracteristique ({actor = null,
 
         // Récupération des données de la fenêtre de dialogue pour ce jet 
         caracteristique = dialogOptions.caracteristique;
-        //speUtilisee = dialogOptions.speUtilisee;
+    }
+
+    if(afficherDialog && trait) {
+        let dialogOptions = await getJetTraitOptions({cfgData: CONFIG.WallowWide, trait: trait});
+        
+        // On annule le jet sur les boutons 'Annuler' ou 'Fermeture'    
+        if(dialogOptions.annule) {
+            return null;
+        }
+
+        // Récupération des données de la fenêtre de dialogue pour ce jet 
+        caracteristique = dialogOptions.caracteristique;
     }
 
     if(!caracteristique) {
@@ -136,13 +147,12 @@ export async function jetCaracteristique ({actor = null,
     rollData.dices = dices;
 
     if(trait || hobby) {
-        rollData.resultat = dices.dice2.total;
-        actor.utiliserPointDrame();
-    }
-    else if(metier) {
         rollData.resultat = dices.dice1.total;            
         // Bouton de reroll
         rollData.depenseDrame = depDramePossible;
+    }
+    else if(metier) {
+        rollData.resultat = dices.dice2.total;
     }
     else {
         rollData.resultat = dices.dice1.total;
@@ -220,6 +230,80 @@ function _processJetMetierOptions(form) {
     }
 }
 
+// Fonction de construction de la boite de dialogue de jet de caracteristique Hobby
+async function getJetTraitOptions({cfgData = null, trait = null}) {
+    // Recupération du template
+    const template = "systems/wallow-wide/templates/partials/dice/dialog-jet-trait.hbs";
+    const html = await renderTemplate(template, {cfgData: cfgData, trait: trait});
+
+    return new Promise( resolve => {
+        const data = {
+            title: "Jet de caractéristique avec bonus Trait",
+            content: html,
+            buttons: {
+                jet: { // Bouton qui lance le jet de dé
+                    icon: '<i class="fas fa-dice"></i>',
+                    label: "Jeter les dés",
+                    callback: html => resolve(_processJetTraitOptions(html[0].querySelector("form")))
+                },
+                annuler: { // Bouton d'annulation
+                    label: "Annuler",
+                    callback: html => resolve({annule: true})
+                }
+            },
+            default: "jet",
+            close: () => resolve({annule: true}) // Annulation sur fermeture de la boite de dialogue
+        }
+
+        // Affichage de la boite de dialogue
+        new Dialog(data, null).render(true);
+    });        
+}
+
+// Gestion des données renseignées dans la boite de dialogue de jet de caracteristique Hobby
+function _processJetTraitOptions(form) {
+    return {
+        caracteristique: form.carac.value != "aucun" ? form.carac.value : null
+    }
+}
+
+// Fonction de construction de la boite de dialogue de jet de caracteristique Hobby
+async function getJetHobbyOptions({cfgData = null, hobby = null}) {
+    // Recupération du template
+    const template = "systems/wallow-wide/templates/partials/dice/dialog-jet-hobby.hbs";
+    const html = await renderTemplate(template, {cfgData: cfgData, hobby: hobby});
+
+    return new Promise( resolve => {
+        const data = {
+            title: "Jet de caractéristique avec bonus Hobby",
+            content: html,
+            buttons: {
+                jet: { // Bouton qui lance le jet de dé
+                    icon: '<i class="fas fa-dice"></i>',
+                    label: "Jeter les dés",
+                    callback: html => resolve(_processJetHobbyOptions(html[0].querySelector("form")))
+                },
+                annuler: { // Bouton d'annulation
+                    label: "Annuler",
+                    callback: html => resolve({annule: true})
+                }
+            },
+            default: "jet",
+            close: () => resolve({annule: true}) // Annulation sur fermeture de la boite de dialogue
+        }
+
+        // Affichage de la boite de dialogue
+        new Dialog(data, null).render(true);
+    });        
+}
+
+// Gestion des données renseignées dans la boite de dialogue de jet de caracteristique Hobby
+function _processJetHobbyOptions(form) {
+    return {
+        caracteristique: form.carac.value != "aucun" ? form.carac.value : null
+    }
+}
+
 export async function jetRelanceSpecialisation ({actor = null,
     specialisation = null,
     rollFormula = null,
@@ -262,7 +346,7 @@ export async function jetRelanceSpecialisation ({actor = null,
     }
 
     rollData.dices = dices;
-    rollData.resultat = dices.dice1.total;
+    rollData.resultat = dices.dice2.total;
     rollData.depDrame = depDrame;
 
     let messageTemplate;
@@ -290,48 +374,4 @@ export async function jetRelanceSpecialisation ({actor = null,
 
     // Affichage du message
     await ChatMessage.create(chatData);
-}
-
-// Fonction de construction de la boite de dialogue de jet de caracteristique Hobby
-async function getJetHobbyOptions({cfgData = null, hobby = null}) {
-    // Recupération du template
-    const template = "systems/wallow-wide/templates/partials/dice/dialog-jet-hobby.hbs";
-    const html = await renderTemplate(template, {cfgData: cfgData, hobby: hobby});
-
-    return new Promise( resolve => {
-        const data = {
-            title: "Jet de caractéristique avec bonus Hobby",
-            content: html,
-            buttons: {
-                jet: { // Bouton qui lance le jet de dé
-                    icon: '<i class="fas fa-dice"></i>',
-                    label: "Jeter les dés",
-                    callback: html => resolve(_processJetHobbyOptions(html[0].querySelector("form")))
-                },
-                annuler: { // Bouton d'annulation
-                    label: "Annuler",
-                    callback: html => resolve({annule: true})
-                }
-            },
-            default: "jet",
-            close: () => resolve({annule: true}) // Annulation sur fermeture de la boite de dialogue
-        }
-
-        // Affichage de la boite de dialogue
-        new Dialog(data, null).render(true);
-    });        
-}
-
-// Gestion des données renseignées dans la boite de dialogue de jet de caracteristique Hobby
-function _processJetHobbyOptions(form) {
-    /*let speUtilisee = false;
-        if(form.speUtilisee) {
-            speUtilisee = form.speUtilisee.checked;
-        }
-    */
-
-    return {
-        caracteristique: form.carac.value != "aucun" ? form.carac.value : null
-        //speUtilisee: speUtilisee
-    }
 }

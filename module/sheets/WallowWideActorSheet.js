@@ -45,14 +45,14 @@ export default class WallowWideActorSheet extends ActorSheet {
             jEntry.pages.forEach(page => {
                 //console.log(page.name, data.data.name);
                 if(page.name == data.data.name) {
-                    console.log(page);
+                    //console.log(page);
                     data.data.journalLink = `JournalEntry.${jEntry._id}.JournalEntryPage.${page._id}`;
                     data.data.pageId = page._id;
                 }
             })
         });
 
-        console.log(data);
+        //console.log(data);
 
         return data;
     }
@@ -130,7 +130,9 @@ export default class WallowWideActorSheet extends ActorSheet {
         const trait = this.actor.items.get(traitId);
         let reserveDrame = game.WallowWide.drameTracker.getNbPointsReserve();
         
-        if(reserveDrame < 1) {
+        let depDramePossible = !(reserveDrame < 1 || this.actor.system.pointsDrame == 2);
+
+        /*if(reserveDrame < 1) {
             ui.notifications.warn("Il n'y a plus de points de Drame dans la réserve !");    
             return;
         }
@@ -138,12 +140,14 @@ export default class WallowWideActorSheet extends ActorSheet {
         if(this.actor.system.pointsDrame == 2) {
             ui.notifications.warn("Vous avez déjà utilisé vos deux points de Drame !");    
             return;
-        }
+        }*/
 
         Dice.jetCaracteristique({
             actor: this.actor,
             caracteristique: dataset.carac,
-            trait : trait
+            trait : trait,
+            afficherDialog: true,
+            depDramePossible: depDramePossible
         });
     }
 
@@ -153,26 +157,12 @@ export default class WallowWideActorSheet extends ActorSheet {
 
         let metierId = dataset.itemId;
         const metier = this.actor.items.get(metierId);
-        let reserveDrame = game.WallowWide.drameTracker.getNbPointsReserve();
-        
-        /*if(reserveDrame < 1 && metier.system.niveau != "maitre") {
-            ui.notifications.warn("Il n'y a plus de points de Drame dans la réserve !");    
-            return;
-        }
-
-        if(this.actor.system.pointsDrame == 2 && metier.system.niveau != "maitre") {
-            ui.notifications.warn("Vous avez déjà utilisé vos deux points de Drame !");    
-            return;
-        }*/
-
-        let depDramePossible = !(reserveDrame < 1 || this.actor.system.pointsDrame == 2);
 
         Dice.jetCaracteristique({
             actor: this.actor,
             caracteristique: dataset.carac,
             metier : metier,
-            afficherDialog: true,
-            depDramePossible: depDramePossible
+            afficherDialog: true
         });
     }
 
@@ -184,21 +174,14 @@ export default class WallowWideActorSheet extends ActorSheet {
         const hobby = this.actor.items.get(hobbyId);
         let reserveDrame = game.WallowWide.drameTracker.getNbPointsReserve();
         
-        if(reserveDrame < 1) {
-            ui.notifications.warn("Il n'y a plus de points de Drame dans la réserve !");    
-            return;
-        }
-
-        if(this.actor.system.pointsDrame == 2) {
-            ui.notifications.warn("Vous avez déjà utilisé vos deux points de Drame !");    
-            return;
-        }
+        let depDramePossible = !(reserveDrame < 1 || this.actor.system.pointsDrame == 2);
 
         Dice.jetCaracteristique({
             actor: this.actor,
             caracteristique: dataset.carac,
             hobby : hobby,
-            afficherDialog: true
+            afficherDialog: true,
+            depDramePossible: depDramePossible
         });
     }
 }
