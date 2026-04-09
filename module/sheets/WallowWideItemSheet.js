@@ -1,7 +1,7 @@
-export default class WallowWideItemSheet extends ItemSheet {
+export default class WallowWideItemSheet extends foundry.appv1.sheets.ItemSheet {
      
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             width: 650,
             height: 390,
             classes: ["wallow-wide", "sheet", "item"],

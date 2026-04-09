@@ -1,9 +1,9 @@
 import * as Dice from "../dice.js";
 
-export default class WallowWideActorSheet extends ActorSheet {
+export default class WallowWideActorSheet extends foundry.appv1.sheets.ActorSheet {
      
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             width: 750,
             height: 1000,
             classes: ["wallow-wide", "sheet", "actor"],
@@ -16,13 +16,13 @@ export default class WallowWideActorSheet extends ActorSheet {
     get template() {
         if(this.actor.type == "pj") {
             if(!this.options.classes.includes("pj")) { this.options.classes.push("pj"); }
-            mergeObject(this.position, {width: 770, height: 1000});
+            foundry.utils.mergeObject(this.position, {width: 770, height: 1000});
             console.log(`Wallow Wide | type : ${this.actor.type} | chargement du template systems/wallow-wide/templates/sheets/actors/personnage-sheet-v2.html`);
             return `systems/wallow-wide/templates/sheets/actors/personnage-sheet-v2.html`
         } 
         else if (this.actor.type == "pnj") {
             if(!this.options.classes.includes("pnj")) { this.options.classes.push("pnj"); }
-            mergeObject(this.position, {width: 745, height: 500});
+            foundry.utils.mergeObject(this.position, {width: 745, height: 500});
             console.log(`Wallow Wide | type : ${this.actor.type} | chargement du template systems/wallow-wide/templates/sheets/actors/pnj-sheet.html`);
             return `systems/wallow-wide/templates/sheets/actors/pnj-sheet.html`
         }
@@ -68,7 +68,7 @@ export default class WallowWideActorSheet extends ActorSheet {
         html.find(StressClass).addClass("stress-cur");
 
         if (this.actor.isOwner) {
-            new ContextMenu(html, ".item-options", this.traitContextMenu);
+            new foundry.applications.ux.ContextMenu(html, ".item-options", this.traitContextMenu);
 
              // Jet de caractéristique
             html.find('.roll-carac').click(this._onJetCaracteristique.bind(this));

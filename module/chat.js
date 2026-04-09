@@ -1,8 +1,17 @@
 import * as Dice from "./dice.js";
 
+/*
 export function addChatListeners(html) {
     html.on('click', 'button.spec', onRelanceSpecialisation);
     html.on('click', 'button.drame', onUtiliserDrame);
+}*/
+
+export function addChatMessageListeners(html) {
+    let query = html.querySelector('button.spec');
+    if(query) { query.addEventListener('click', onRelanceSpecialisation); }
+
+    query = html.querySelector('button.drame');
+    if(query) { query.addEventListener('click', onUtiliserDrame); }
 }
 
 function onRelanceSpecialisation(event) {

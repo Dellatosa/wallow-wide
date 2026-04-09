@@ -565,6 +565,11 @@ a.content-link i {
 /*******************************/
 /**       Drame Tracker        **/
 /*******************************/
+/*
+    .flexcol {
+    display: flex;
+    flex-direction: column;
+    }*/
 #drame-tracker-drag {
   width: 100%;
   height: 10px;
@@ -572,10 +577,6 @@ a.content-link i {
 }
 #drame-tracker-drag:hover {
   cursor: move;
-}
-.flexcol {
-  display: flex;
-  flex-direction: column;
 }
 .wallow-opacity-hover {
   opacity: 0.9;

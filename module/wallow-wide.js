@@ -14,7 +14,7 @@ async function preloadHandlebarsTemplates() {
         "systems/wallow-wide/templates/partials/actors/bloc-caracSecondaires-personnage.hbs"
     ];
 
-    return loadTemplates(templatePaths);
+    return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
 
 Hooks.once("init", function(){
@@ -38,11 +38,11 @@ Hooks.once("init", function(){
     CONFIG.Actor.documentClass = WallowWideActor;
     CONFIG.Item.documentClass = WallowWideItem;
 
-    Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("wallow-wide", WallowWideActorSheet, {makeDefault: true});
+    foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
+    foundry.documents.collections.Actors.registerSheet("wallow-wide", WallowWideActorSheet, {makeDefault: true});
 
-    Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("wallow-wide", WallowWideItemSheet, {makeDefault: true});
+    foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
+    foundry.documents.collections.Items.registerSheet("wallow-wide", WallowWideItemSheet, {makeDefault: true});
 
     registerSystemSettings();
     
@@ -53,7 +53,9 @@ Hooks.once("init", function(){
     });
 })
 
-Hooks.on("renderChatLog", (app, html, data) => Chat.addChatListeners(html));
+//Hooks.on("renderChatLog", (app, html, data) => Chat.addChatListeners(html));
+
+Hooks.on("renderChatMessageHTML", (message, html, context) => Chat.addChatMessageListeners(html));
 
 Hooks.once("ready", async function() {
     // Tracker Handling

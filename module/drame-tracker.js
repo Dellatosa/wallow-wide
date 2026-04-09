@@ -5,7 +5,7 @@ export class DrameTracker extends Application {
 	}
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["wallow-wide", "tracker"]
         });
     }
@@ -36,8 +36,8 @@ export class DrameTracker extends Application {
 	activateListeners(html) {
 		super.activateListeners(html);
 		
-		new ContextMenu(html, ".lst-persos-in", this.getPersosInContextMenu());
-		new ContextMenu(html, ".lst-persos-out", this.getPersosOutContextMenu());
+		new foundry.applications.ux.ContextMenu(html, ".lst-persos-in", this.getPersosInContextMenu());
+		new foundry.applications.ux.ContextMenu(html, ".lst-persos-out", this.getPersosOutContextMenu());
 		html.find(".tracker-reinit").click(this._onTrackerReinit.bind(this));	
 		html.find("#drame-tracker-drag").contextmenu(this._onRightClick.bind(this));
 

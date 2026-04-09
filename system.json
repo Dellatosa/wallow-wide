@@ -34,11 +34,8 @@
   ],
   "compatibility": {
     "minimum": "10.278",
-    "verified": "11.315",
-    "maximum": "11"
+    "verified": "11.315"
   },
-  "gridDistance": 1.5,
-  "gridUnits": "m",
   "initiative": "@defense + 1d10",
   "primaryTokenAttribute": "sante",
   "url": "https://github.com/Dellatosa/wallow-wide",
