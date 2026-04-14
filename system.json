@@ -1,7 +1,7 @@
 {
   "title": "Wallow Wide",
   "description": "Wallow Wide le JDR",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "esmodules": [
     "module/wallow-wide.js"
   ],
@@ -33,14 +33,14 @@
     }
   ],
   "compatibility": {
-    "minimum": "10.278",
-    "verified": "11.315"
+    "minimum": "13",
+    "verified": "13.346"
   },
   "initiative": "@defense + 1d10",
   "primaryTokenAttribute": "sante",
   "url": "https://github.com/Dellatosa/wallow-wide",
   "manifest": "https://raw.githubusercontent.com/Dellatosa/wallow-wide/master/system.json",
-  "download": "https://github.com/Dellatosa/wallow-wide/archive/refs/tags/v0.1.3.zip",
+  "download": "https://github.com/Dellatosa/wallow-wide/archive/refs/tags/v0.1.4.zip",
   "id": "wallow-wide",
   "authors": [
     {
