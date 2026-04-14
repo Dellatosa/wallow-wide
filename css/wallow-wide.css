@@ -523,6 +523,14 @@ a.content-link i {
   box-shadow: 0 0 2px #FFF inset;
   background-color: #c0a13b8e;
 }
+.btn-drame,
+.btn-spec {
+  margin: 3px;
+}
+.btn-drame button,
+.btn-spec button {
+  width: 100%;
+}
 /*.dialog-buttons {
     
     button:hover, button:focus {

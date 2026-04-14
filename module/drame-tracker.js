@@ -36,8 +36,8 @@ export class DrameTracker extends Application {
 	activateListeners(html) {
 		super.activateListeners(html);
 		
-		new foundry.applications.ux.ContextMenu(html, ".lst-persos-in", this.getPersosInContextMenu());
-		new foundry.applications.ux.ContextMenu(html, ".lst-persos-out", this.getPersosOutContextMenu());
+		new foundry.applications.ux.ContextMenu(html, ".lst-persos-in", this.getPersosInContextMenu(), {jQuery: false});
+		new foundry.applications.ux.ContextMenu(html, ".lst-persos-out", this.getPersosOutContextMenu(), {jQuery: false});
 		html.find(".tracker-reinit").click(this._onTrackerReinit.bind(this));	
 		html.find("#drame-tracker-drag").contextmenu(this._onRightClick.bind(this));
 

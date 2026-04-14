@@ -4,15 +4,7 @@
         <label>Caractéristique</label>
         <div class="data">
             <select name="carac">
-            {{#select carac}}
-                {{#each cfgData.caracteristiques as |caracteristique keyCarac|}}
-                    {{#if (eq keyCarac ../trait.system.caracteristique)}}
-                        <option value="{{keyCarac}}" selected>{{caracteristique}}</option>
-                    {{else}}
-                        <option value="{{keyCarac}}">{{caracteristique}}</option>
-                    {{/if}}
-                {{/each}}
-            {{/select}}
+                {{selectOptions cfgData.caracteristiques selected=caracteristique localize=true}}
             </select> 
         </div>
     </div>

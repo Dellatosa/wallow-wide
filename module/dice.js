@@ -113,7 +113,7 @@ export async function jetCaracteristique ({actor = null,
         rollData.hobby = hobby.name;
     }
 
-    let rollResult = await new Roll(rollFormula, rollData).roll({async: true});
+    let rollResult = await new Roll(rollFormula, rollData).evaluate();
         
     const sortDesc = (a, b) => a[1] - b[1];
 
@@ -177,9 +177,8 @@ export async function jetCaracteristique ({actor = null,
             user: game.user.id,
             speaker: ChatMessage.getSpeaker({ actor: actor }),
             roll: rollResult,
-            content: await renderTemplate(messageTemplate, templateContext),
-            sound: CONFIG.sounds.dice,
-            type: CONST.CHAT_MESSAGE_TYPES.ROLL
+            content: await foundry.applications.handlebars.renderTemplate(messageTemplate, templateContext),
+            sound: CONFIG.sounds.dice
         }
 
         // Affichage du message
@@ -191,7 +190,7 @@ export async function jetCaracteristique ({actor = null,
 async function getJetMetierOptions({cfgData = null, metier = null}) {
     // Recupération du template
     const template = "systems/wallow-wide/templates/partials/dice/dialog-jet-metier.hbs";
-    const html = await renderTemplate(template, {cfgData: cfgData, metier: metier});
+    const html = await foundry.applications.handlebars.renderTemplate(template, {cfgData: cfgData, metier: metier});
 
     return new Promise( resolve => {
         const data = {
@@ -234,7 +233,7 @@ function _processJetMetierOptions(form) {
 async function getJetTraitOptions({cfgData = null, trait = null}) {
     // Recupération du template
     const template = "systems/wallow-wide/templates/partials/dice/dialog-jet-trait.hbs";
-    const html = await renderTemplate(template, {cfgData: cfgData, trait: trait});
+    const html = await foundry.applications.handlebars.renderTemplate(template, {cfgData: cfgData, trait: trait});
 
     return new Promise( resolve => {
         const data = {
@@ -271,7 +270,7 @@ function _processJetTraitOptions(form) {
 async function getJetHobbyOptions({cfgData = null, hobby = null}) {
     // Recupération du template
     const template = "systems/wallow-wide/templates/partials/dice/dialog-jet-hobby.hbs";
-    const html = await renderTemplate(template, {cfgData: cfgData, hobby: hobby});
+    const html = await foundry.applications.handlebars.renderTemplate(template, {cfgData: cfgData, hobby: hobby});
 
     return new Promise( resolve => {
         const data = {
@@ -317,7 +316,7 @@ export async function jetRelanceSpecialisation ({actor = null,
 
     const sortDesc = (a, b) => a[1] - b[1];
 
-    let rollResult = await new Roll(rollFormula, rollData).roll({async: true});
+    let rollResult = await new Roll(rollFormula, rollData).evaluate(); //.roll({async: true});
     diceResults.push([rollResult.dice[0].faces, rollResult.dice[0].total, true]);
     diceResults.sort(sortDesc);
 
@@ -367,9 +366,8 @@ export async function jetRelanceSpecialisation ({actor = null,
         user: game.user.id,
         speaker: ChatMessage.getSpeaker({ actor: actor }),
         roll: rollResult,
-        content: await renderTemplate(messageTemplate, templateContext),
-        sound: CONFIG.sounds.dice,
-        type: CONST.CHAT_MESSAGE_TYPES.ROLL
+        content: await foundry.applications.handlebars.renderTemplate(messageTemplate, templateContext),
+        sound: CONFIG.sounds.dice
     }
 
     // Affichage du message

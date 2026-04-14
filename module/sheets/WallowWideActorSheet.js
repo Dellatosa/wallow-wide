@@ -68,7 +68,7 @@ export default class WallowWideActorSheet extends foundry.appv1.sheets.ActorShee
         html.find(StressClass).addClass("stress-cur");
 
         if (this.actor.isOwner) {
-            new foundry.applications.ux.ContextMenu(html, ".item-options", this.traitContextMenu);
+            new foundry.applications.ux.ContextMenu(html, ".item-options", this.traitContextMenu, {jQuery: false});
 
              // Jet de caractéristique
             html.find('.roll-carac').click(this._onJetCaracteristique.bind(this));
@@ -85,18 +85,18 @@ export default class WallowWideActorSheet extends foundry.appv1.sheets.ActorShee
         {
             name: "Editer",
             icon: '<i class="fas fa-edit"></i>',
-            callback: e => {
+            callback: e => this._selectItemFromHTML(e).sheet.render(true) /*{
                 const data = e[0].dataset;
                 const item = this.actor.items.get(data.itemId);
                 item.sheet.render(true);
-            }
+            }*/
         },
         {
             name: "Supprimer",
             icon: '<i class="fas fa-trash"></i>',
             callback: e => {
-                const data = e[0].dataset;
-                const item = this.actor.items.get(data.itemId);
+                //const data = e[0].dataset;
+                const item = this._selectItemFromHTML(e); //this.actor.items.get(data.itemId);
 
                 let content = `<p>${item.type} : ${item.name}<br>Etes-vous certain de vouloir supprimer cet objet ?<p>`
                 let dlg = Dialog.confirm({
@@ -109,6 +109,21 @@ export default class WallowWideActorSheet extends foundry.appv1.sheets.ActorShee
             }
         }
     ];
+
+    _selectItemFromHTML(html, {selector="itemId", maxIterations=5}={}) {
+        let el = html.length ? html[0] : html;
+        let id;
+        for (let i = 0; i < maxIterations; i++) {
+            if (el.dataset[selector]) {
+                id = el.dataset[selector];
+                break;
+            }
+            el = el.parentNode;
+            if (!el) return null;
+        }
+        const entity = id ? this.actor.items.get(id) : null;
+        return entity
+    }
 
     _onJetCaracteristique(event) {
         event.preventDefault();
